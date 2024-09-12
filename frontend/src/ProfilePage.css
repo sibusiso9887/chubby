@@ -1,0 +1,198 @@
+.update_profile_page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.update_profile_page_form {
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+    margin-top: 50px;
+
+}
+
+.update_profile_page_form_top {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 35px;
+}
+
+.update_profile_page_form_top span {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.update_profile_page_form_center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.update_profile_page_form_input_container {
+    width: 90%;
+    border: none;
+    margin-bottom: 10px;
+}
+
+.update_profile_page_form_input_container_label {
+    color: black;
+}
+
+.update_profile_page_form_input_container_input {
+
+}
+
+.update_profile_page_form_center_bottom {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.terms_condition {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+}
+
+
+.update_profile_page_form_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+}
+
+.submit_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: orangered;
+    color: white;
+    border: none;
+    border-radius: 360px;
+    padding: 5px;
+    width: 200px;
+}
+
+.update_profile_page_form_bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+}
+
+
+
+@media (max-width:700px) {
+    .update_profile_page {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .update_profile_page_form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: none;
+        border-radius: 5px;
+        margin-top: 5px;
+    
+    }
+    
+    .update_profile_page_form_top {
+        width: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 35px;
+        height: 50px;
+    }
+    
+    .update_profile_page_form_top span {
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        display: flex;
+        justify-content: center;
+        font-weight: bold;
+      
+    }
+    
+    .update_profile_page_form_center {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .update_profile_page_form_input_container {
+        width: 90%;
+        border: none;
+        margin-bottom: 10px;
+    }
+    
+    .update_profile_page_form_input_container_label {
+        color: black;
+    }
+    
+    .update_profile_page_form_input_container_input {
+    
+    }
+    
+    .update_profile_page_form_center_bottom {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+    }
+    
+    .terms_condition {
+        display: flex;
+        align-items: center;
+        height: 50px;
+        width: 100%;
+    }
+    
+    
+    .update_profile_page_form_button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 50px;
+    }
+    
+    .submit_button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: orangered;
+        color: white;
+        border: none;
+        border-radius: 360px;
+        padding: 5px;
+        width: 200px;
+    }
+    
+    .update_profile_page_form_bottom {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+    }
+    
+}

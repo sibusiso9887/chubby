@@ -1,0 +1,132 @@
+.mobile_product_card {
+    border: 1px solid gainsboro;
+    width:98%;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 10px;
+    } 
+     
+    .mobile_product_card_btn {
+    
+    border-radius: 5px;
+    width: 95%;
+    height: 40px;
+    border: none;
+    background-color: green;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+    
+    .mobile_product_card_btn_left {
+        color: white;
+        display: flex;
+    align-items: center;
+    }
+    
+    .mobile_product_card_btn_right {
+        color: white;
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 20px;
+        display: flex;
+    align-items: center;
+    margin-left: 5px;
+    }
+    
+    .mobile_product_card_img {
+        height: 250px;
+        width: 100%;
+    
+    }
+    
+    .mobile_product_card_details {
+    height: 20%;
+    width: 100%;
+    padding: 5px;
+    }
+    
+    .mobile_product_card_details_top {
+    display: flex;
+    align-items: center;
+    }
+    
+    .mobile_product_card_details_top_name {
+    font-weight: bold;
+    color: black;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    }
+    
+    .mobile_product_card_details_center {
+    display: flex;
+    align-items: center;
+    }
+    
+    .mobile_product_card_details_center_rating {
+    color: gold;
+    }
+    
+    .mobile_product_card_details_bottom {
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .mobile_product_card_details_bottom_left {
+    width: 50%;
+    
+    }
+    
+    .mobile_product_card_details_bottom_left_price {
+    font-style: italic;
+    font-weight: bold;
+    color: black;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    }
+    
+    .mobile_product_card_details_bottom_right {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    
+    }
+    
+    .mobile_product_card_details_bottom_right_price {
+    margin-left: auto;
+    border: 1px solid green;
+    color: green;
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 360px;
+    }
+    
+    .mobile_product_card_details_location {
+        display: flex;
+        align-items: center;
+       
+        }
+        
+        .mobile_product_card_details_location_icon {
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        color: black;
+        }
+        
+        .mobile_product_card_details_location_province {
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        color: black;    
+    }
+        
+        .mobile_product_card_details_location_city {
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        color: black;
+        margin-left: 3px;    
+    }
+        

@@ -1,0 +1,118 @@
+.mobile_header {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    background-color: white;
+}
+
+.mobile_header_top {
+    display: flex; 
+    align-items: center;
+}
+
+.mobile_header_top_left {
+    display: flex;
+    align-items: center;
+    width: 25%; 
+}
+ 
+.mobile_header_top_center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+
+.mobile_header_top_center_logo {
+    width: 75px;
+}
+
+.mobile_header_top_right {
+    width: 25%;
+display: flex;
+align-items: center;
+justify-content: flex-end;
+padding-right: 15px;
+
+}
+
+.mobile_header_top_right_icon {
+color: black;
+}
+
+/*drawer*/
+
+.mobile_header_drawer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+}
+
+.mobile_header_drawer_top {
+display: flex;
+align-items: center;
+justify-content: center;
+height: 50px;
+border-bottom: 2px solid gainsboro;
+}
+
+.mobile_header_drawer_top_logo {
+width: 80%;
+height: 60%;
+}
+
+.mobile_header_drawer_center {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.mobile_header_drawer_center_link_con {
+display: flex;
+align-items: center;
+margin-bottom: 10px;
+}
+
+.mobile_header_drawer_center_link_con_left {
+color: black;
+}
+
+.mobile_header_drawer_center_link_con_right {
+font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+margin-left: 10px;
+color: black;
+}
+
+.mobile_header_drawer_bottom {
+display: flex;
+align-items: center;
+justify-content: center;
+margin-top: auto;
+height: 50px;
+}
+
+.mobile_header_drawer_bottom_logout {
+background-color: whitesmoke;
+border: none;
+border-radius: 5px;
+width: 90%;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 5px;
+}
+
+.mobile_header_drawer_bottom_logout_icon {
+color: gray;
+}
+
+.mobile_header_drawer_bottom_logout_text {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+margin-left: 5px;
+font-size: 20px;
+font-weight: bold;
+color: gray;
+}

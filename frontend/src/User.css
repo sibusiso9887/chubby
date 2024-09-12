@@ -1,0 +1,161 @@
+.user_card {
+    width: 99%;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin-left: auto;
+        margin-right: auto;
+}
+
+.user_card_img {
+    width: 100%;
+    height: 400px;
+} 
+
+.user_card_details {
+display: flex;
+flex-direction: column;
+padding: 5px;
+}
+
+.user_card_details_top {
+display: flex;
+align-items: center;
+}
+
+.user_card_details_name {
+font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.user_card_details_age {
+    margin-left: 2px;
+font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.user_card_details_verification {
+    color: royalblue;
+    margin-left: 10px;
+
+}
+
+.user_card_details_bottom {
+display: flex;
+align-items: center;
+}
+
+.user_card_details_location {
+display: flex;
+align-items: center;
+width: 100%;
+}
+
+.user_card_details_location_icon {
+    width: 10%;
+    display: flex;
+align-items: center;
+padding-left: 5px;
+height: 30px;
+}
+
+.user_card_details_location_img {
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+}
+
+.user_card_details_location_province {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.user_card_details_location_city {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    margin-left: 2px;
+}
+
+@media (max-width:700px) {
+    .user_card {
+        width: 96%;
+        margin-bottom: 5px;
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        border-radius: 10px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .user_card_img {
+        width: 100%;
+        height: 200px;
+    } 
+    
+    .user_card_details {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    }
+    
+    .user_card_details_top {
+    display: flex;
+    align-items: center;
+    }
+    
+    .user_card_details_name {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    }
+    
+    .user_card_details_age {
+        margin-left: 2px;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    }
+    
+    .user_card_details_verification {
+        color: royalblue;
+        margin-left: 10px;
+    
+    }
+    
+    .user_card_details_bottom {
+    display: flex;
+    align-items: center;
+    }
+    
+.user_card_details_location {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: green;
+    height: 30px;
+    }
+    
+    .user_card_details_location_icon {
+        width: 18%;
+        display: flex;
+    align-items: center;
+    padding-left: 5px;
+    height: 30px;
+    }
+    
+    .user_card_details_location_img {
+        width: 15px;
+        height: 15px;
+        border-radius: 2px;
+    }
+    
+    .user_card_details_location_province {
+        display: flex;
+        align-items: center;
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        height: 30px;
+    }
+    
+    .user_card_details_location_city {
+        display: flex;
+        align-items: center;
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        margin-left: 2px;
+        height: 30px;
+        overflow-x: hidden;
+    }
+}

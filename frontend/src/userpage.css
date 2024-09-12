@@ -1,0 +1,514 @@
+.seller_page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.seller_page_mobile {
+    display: none;
+}
+
+.seller_page_desktop {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.seller_page_desktop_con {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.seller_page_desktop_con_left {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+
+.seller_page_desktop_con_right {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.seller_page_desktop_con_right_top {
+    position: relative;
+    height: 400px;
+
+}
+
+.seller_page_desktop_con_right_top_banner {
+    height: 50%;
+}
+
+.seller_page_desktop_con_right_top_banner_img {
+    height: 100%;
+    width: 100%;
+}
+
+.seller_page_desktop_con_right_top_banner_arrow {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: black;
+    padding: 5px;
+    background-color: white;
+    border: 2px solid gainsboro;
+    border-radius: 360px;
+}
+
+.seller_page_desktop_con_right_top_bio {
+    display: flex;
+    height: 50%;
+    width: 100%;
+}
+
+.seller_page_desktop_con_right_top_bio_left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10%;
+}
+
+.seller_page_desktop_con_right_top_bio_left_logo {
+    width: 78px;
+    height: 78px;
+    border-radius: 5px;
+    border: 1px solid gainsboro;
+    position: absolute;
+    top: 41%;
+    background-color: white;
+}
+
+.seller_page_desktop_con_right_top_bio_right {
+    display: flex;
+    flex-direction: column;
+width: 100%;
+}
+
+
+
+.seller_page_desktop_con_right_top_bio_right_user_info {
+ border-bottom: 1px solid gainsboro;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        height: 50px;
+}
+
+.seller_page_desktop_con_right_top_bio_right_user_info_left {
+    display: flex;
+    align-items: center;
+width: 50%;
+}
+
+.seller_page_desktop_con_right_top_bio_right_user_info_name {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.seller_page_desktop_con_right_top_bio_right_user_info_age {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    margin-left: 3px;
+}
+
+
+.seller_page_desktop_con_right_top_bio_right_user_info_verification {
+    color: royalblue;
+    margin-left: 3px;
+}
+
+.seller_page_desktop_con_right_top_bio_right_user_info_right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 50%;
+    padding-right: 10px;
+}
+
+
+
+.seller_page_desktop_con_right_top_bio_right_user_info_edit_profile_link {
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   width: 100px;
+    padding: 5px;
+    border: 1px solid gainsboro;
+    color: black;
+}
+
+
+
+.seller_page_desktop_con_right_top_bio_right_location {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.seller_page_desktop_con_right_top_bio_right_location_icon {}
+
+.seller_page_desktop_con_right_top_bio_right_location_province {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    margin-left: 5px;
+}
+
+.seller_page_desktop_con_right_top_bio_right_location_city {}
+
+
+.seller_page_desktop_con_right_top_bio_right_contact {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.seller_page_desktop_con_right_top_bio_right_contact_icon {
+    color: black;
+}
+
+.seller_page_desktop_con_right_top_bio_right_contact_text {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    margin-left: 5px;
+}
+
+.seller_page_desktop_con_right_bottom {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.seller_page_desktop_con_right_bottom_select {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    border-top: 1px solid gainsboro;
+    border-bottom: 1px solid gainsboro;
+}
+
+.seller_page_desktop_con_right_bottom_select span {
+    margin-right: 10px;
+
+}
+
+.seller_page_desktop_con_right_bottom_select span:hover {
+    margin-right: 10px;
+    color: gray;
+    cursor: pointer;
+}
+
+.seller_page_desktop_con_right_bottom_select_details {
+    width: 100%;
+
+}
+
+.seller_page_desktop_con_right_bottom_select_details_product_list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding-top: 25px;
+}
+
+.seller_page_desktop_con_right_bottom_select_details_image_list {
+    width: 99%;
+    margin-bottom: 2px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.seller_page_desktop_con_right_bottom_select_details_seller_info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.seller_page_desktop_con_right_bottom_select_details_seller_info_name {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid gainsboro;
+    margin-bottom: 15px;
+}
+
+.seller_page_desktop_con_right_bottom_select_details_seller_info_con {
+    display: flex;
+    flex-direction: column;
+}
+
+.seller_page_desktop_con_right_bottom_select_details_seller_info_card_left_contact {}
+
+.seller_page_desktop_con_right_bottom_select_details_seller_info_card_right_contact {
+    margin-left: 10px;
+}
+
+.seller_page_desktop_con_right_bottom_select_details_seller_info_card_left_time {
+    width: 120px;
+}
+
+.seller_page_desktop_con_right_bottom_select_details_seller_info_card_right_time {
+    margin-left: 10px;
+}
+
+
+.seller_page_desktop_con_right_bottom_select_details_seller_info_card_right_contact:hover {
+    border-bottom: 1px solid black;
+}
+
+.seller_page_desktop_con_right_bottom_select_details_seller_info_card {
+    display: flex;
+
+}
+
+.seller_page_desktop_con_right_bottom_select_details_seller_info_card_2 {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+
+
+.seller_page_desktop_con_right_bottom_select_details_seller_info_card_top {
+    display: flex;
+    align-items: center;
+}
+
+.seller_page_desktop_con_right_bottom_select_details_seller_info_card_bottom {
+    display: flex;
+    align-items: center;
+}
+
+.seller_page_desktop_con_right_bottom_select_details_seller_info_card_bottom_2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.seller_page_desktop_con_right_bottom_select_details_seller_info_card_left {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    width: 150px;
+}
+
+.seller_page_desktop_con_right_bottom_select_details_seller_info_card_right {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+
+}
+
+.seller_page_desktop_con_right_bottom_select_details_seller_info_description {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+/*all h5 tags*/
+h5 {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.seller_page_desktop_con_right_bottom_select_details_seller_info_description_bottom {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.seller_page_desktop_con_right_bottom_select_details_review {
+    display: flex;
+    flex-direction: column;
+}
+
+.seller_page_desktop_con_right_bottom_select_details_review_card {
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.seller_page_desktop_con_right_bottom_select_details_review_card_top {
+    border-bottom: 1px solid gainsboro;
+    height: 75px;
+    display: flex;
+}
+
+.seller_page_desktop_con_right_bottom_select_details_review_card_top_left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 75px;
+}
+
+.review_logo {
+    width: 65px;
+    height: 100%;
+}
+
+.seller_page_desktop_con_right_bottom_select_details_review_card_bottom {}
+
+@media (max-width:700px) {
+
+    .seller_page_desktop {
+        display: none;
+    }
+
+    .seller_page_mobile {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .seller_page_desktop_con_right {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .seller_page_desktop_con_right_top {
+        position: relative;
+        height: 400px;
+
+    }
+
+    .seller_page_desktop_con_right_top_backarrow {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background-color: white;
+        border-radius: 360px;
+        padding: 10px;
+    }
+
+    .seller_page_desktop_con_right_top_banner {
+        height: 50%;
+    }
+
+    .seller_page_desktop_con_right_top_banner_img {
+        height: 100%;
+        width: 100%;
+    }
+
+    .seller_page_desktop_con_right_top_bio {
+        display: flex;
+        height: 50%;
+    }
+
+    .seller_page_desktop_con_right_top_bio_left {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30%;
+    }
+
+    .seller_page_desktop_con_right_top_bio_left_logo {
+        width: 78px;
+        height: 78px;
+        border-radius: 5px;
+        border: 1px solid gainsboro;
+        position: absolute;
+        top: 41%;
+        background-color: white;
+    }
+
+    .seller_page_desktop_con_right_top_bio_right {
+        width: 100%;
+    }
+
+    .seller_page_desktop_con_right_top_bio_right_user_info {
+       border-bottom: 1px solid gainsboro;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        height: 50px;
+    }
+
+    .seller_page_desktop_con_right_top_bio_right_user_info_name {
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        font-weight: bold;
+    }
+
+    .seller_page_desktop_con_right_top_bio_right_user_info_age {
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        margin-left: 3px;
+    }
+
+    .seller_page_desktop_con_right_top_bio_right_user_info_verification {
+        color: royalblue;
+        margin-left: 3px;
+    }
+
+    .seller_page_desktop_con_right_top_bio_right_location {
+        display: flex;
+        align-items: center;
+    }
+
+    .seller_page_desktop_con_right_top_bio_right_location_icon {
+
+    }
+
+    .seller_page_desktop_con_right_top_bio_right_location_province {
+        margin-left: 5px;
+    }
+
+    .seller_page_desktop_con_right_top_bio_right_location_city {}
+
+    .seller_page_desktop_con_right_top_bio_right_contact {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+    }
+
+    .seller_page_desktop_con_right_top_bio_right_contact_icon {
+        color: black;
+    }
+
+    .seller_page_desktop_con_right_top_bio_right_contact_text {
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        margin-left: 5px;
+    }
+
+    .seller_page_desktop_con_right_bottom {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .seller_page_desktop_con_right_bottom_select {
+        display: flex;
+        align-items: center;
+        height: 50px;
+        width: 100%;
+        border-top: 1px solid gainsboro;
+        border-bottom: 1px solid gainsboro;
+    }
+
+    .seller_page_desktop_con_right_bottom_select span {
+        margin-right: 10px;
+
+    }
+
+    .seller_page_desktop_con_right_bottom_select span:hover {
+        margin-right: 10px;
+        color: gray;
+        cursor: pointer;
+    }
+
+    .seller_page_desktop_con_right_bottom_select_details {
+        width: 100%;
+
+    }
+
+    .seller_page_desktop_con_right_bottom_select_details_product_list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding-top: 25px;
+    }
+
+    .seller_page_mobile_con_right_bottom_select_details_image_list {
+        width: 99%;
+        margin-bottom: 2px;
+        height: 200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+
+
+}

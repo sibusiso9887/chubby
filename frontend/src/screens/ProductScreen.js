@@ -36,6 +36,8 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 
+import CircularProgress from '@mui/material/CircularProgress';
+
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -132,7 +134,9 @@ function UserScreen() {
 
  
   return loading ? (
-    <LoadingBox /> 
+    <div className='loading' >
+    <CircularProgress />
+              </div>
   ) : error ? (
     <MessageBox variant="danger">{error}</MessageBox>
   ) : (
@@ -198,10 +202,15 @@ function UserScreen() {
               <CustomTabPanel value={value} index={0}>
                 <div className='seller_page_desktop_con_right_bottom_select_details' >
                   <div className='seller_page_desktop_con_right_bottom_select_details_product_list' >
+
                     <img src={user.image_1} alt='' className='seller_page_desktop_con_right_bottom_select_details_image_list' />
+                    
                     <img src={user.image_2} alt='' className='seller_page_desktop_con_right_bottom_select_details_image_list' />
+
                     <img src={user.image_3} alt='' className='seller_page_desktop_con_right_bottom_select_details_image_list' />
+
                     <img src={user.image_4} alt='' className='seller_page_desktop_con_right_bottom_select_details_image_list' />
+                    
                     <img src={user.image_5} alt='' className='seller_page_desktop_con_right_bottom_select_details_image_list' />
                  
                   </div>

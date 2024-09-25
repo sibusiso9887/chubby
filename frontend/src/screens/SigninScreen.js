@@ -78,9 +78,11 @@ export default function SigninScreen() {
         </Form.Group>
        
         <div className='login_form_center_password_con' >
-            <Link to={`/forget-password`}>
+       
+            <Link  to={`/forget-password`}>
               <span className='login_form_center_password_link' >Forgot Password</span>
             </Link>
+          
           </div>
           <div className='login_form_center_btn_con' >
             <button type='submit' className='login_form_center_btn' >Login</button>

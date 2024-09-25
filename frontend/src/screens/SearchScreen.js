@@ -17,6 +17,9 @@ import '../SearchPage.css'
 import DesktopHeader from '../components/DesktopHeader';
 import MobileHeader from '../components/MobileHeader';
 
+
+import CircularProgress from '@mui/material/CircularProgress';
+
 //design
 
 import PropTypes from 'prop-types';
@@ -82,27 +85,7 @@ const ages = [
 
 ];
 
-export const ratings = [
-  {
-    name: '4stars & up',
-    rating: 4,
-  },
 
-  {
-    name: '3stars & up',
-    rating: 3,
-  },
-
-  {
-    name: '2stars & up',
-    rating: 2,
-  },
-
-  {
-    name: '1stars & up',
-    rating: 1,
-  },
-];
 
 //design
 const drawerBleeding = 56;
@@ -290,7 +273,10 @@ export default function SearchScreen(props) {
   return (
     <div className='search_page' >
       {loading ? (
-        <LoadingBox></LoadingBox>
+        <div className='loading' >
+<CircularProgress />
+          </div>
+      
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
@@ -354,60 +340,60 @@ export default function SearchScreen(props) {
                     <span>Type</span>
                   </div>
                   <div className='search_page_desktop_left_filter_bottom' >
-                <>
-                    {userInfo.gender === 'male' ? (
-                      <>
-        <span className='search_page_desktop_left_filter_bottom_link' >
-        <Link
-          style={{ textDecoration: 'none', color: 'black' }}
-          className={body === 'thick' ? 'selected' : ''}
-          to={getFilterUrl({ body: 'thick' })}
-        >
-        Thick ({bodyCounts['thick'] || 0})
-        </Link>
-        </span>
-        <span className='search_page_desktop_left_filter_bottom_link' >
-        <Link
-          style={{ textDecoration: 'none', color: 'black' }}
-          className={body === 'chubby' ? 'selected' : ''}
-          to={getFilterUrl({ body: 'chubby' })}
-        >
-        Chubby ({bodyCounts['chubby'] || 0})
-        </Link>
-        </span>
-        </>
-      ) : (
-        <>
-        <span className='search_page_desktop_left_filter_bottom_link' >
-                    <Link
-                      style={{ textDecoration: 'none', color: 'black' }}
-                      className={body === 'slim' ? 'selected' : ''}
-                      to={getFilterUrl({ body: 'slim' })}
-                    >
-                    Slim ({bodyCounts['slim'] || 0})
-                    </Link>
-                    </span>
-                    <span className='search_page_desktop_left_filter_bottom_link' >
-                    <Link
-                      style={{ textDecoration: 'none', color: 'black' }}
-                      className={body === 'average' ? 'selected' : ''}
-                      to={getFilterUrl({ body: 'average' })}
-                    >
-                    Average ({bodyCounts['average'] || 0})
-                    </Link>
-                    </span>
-                     <span className='search_page_desktop_left_filter_bottom_link' >
-                     <Link
-                       style={{ textDecoration: 'none', color: 'black' }}
-                       className={body === 'chubby' ? 'selected' : ''}
-                       to={getFilterUrl({ body: 'chubby' })}
-                     >
-                     Chubby ({bodyCounts['chubby'] || 0})
-                     </Link>
-                     </span>
+                    <>
+                      {userInfo.gender === 'male' ? (
+                        <>
+                          <span className='search_page_desktop_left_filter_bottom_link' >
+                            <Link
+                              style={{ textDecoration: 'none', color: 'black' }}
+                              className={body === 'thick' ? 'selected' : ''}
+                              to={getFilterUrl({ body: 'thick' })}
+                            >
+                              Thick ({bodyCounts['thick'] || 0})
+                            </Link>
+                          </span>
+                          <span className='search_page_desktop_left_filter_bottom_link' >
+                            <Link
+                              style={{ textDecoration: 'none', color: 'black' }}
+                              className={body === 'chubby' ? 'selected' : ''}
+                              to={getFilterUrl({ body: 'chubby' })}
+                            >
+                              Chubby ({bodyCounts['chubby'] || 0})
+                            </Link>
+                          </span>
+                        </>
+                      ) : (
+                        <>
+                          <span className='search_page_desktop_left_filter_bottom_link' >
+                            <Link
+                              style={{ textDecoration: 'none', color: 'black' }}
+                              className={body === 'slim' ? 'selected' : ''}
+                              to={getFilterUrl({ body: 'slim' })}
+                            >
+                              Slim ({bodyCounts['slim'] || 0})
+                            </Link>
+                          </span>
+                          <span className='search_page_desktop_left_filter_bottom_link' >
+                            <Link
+                              style={{ textDecoration: 'none', color: 'black' }}
+                              className={body === 'average' ? 'selected' : ''}
+                              to={getFilterUrl({ body: 'average' })}
+                            >
+                              Average ({bodyCounts['average'] || 0})
+                            </Link>
+                          </span>
+                          <span className='search_page_desktop_left_filter_bottom_link' >
+                            <Link
+                              style={{ textDecoration: 'none', color: 'black' }}
+                              className={body === 'chubby' ? 'selected' : ''}
+                              to={getFilterUrl({ body: 'chubby' })}
+                            >
+                              Chubby ({bodyCounts['chubby'] || 0})
+                            </Link>
+                          </span>
+                        </>
+                      )}
                     </>
-      )}
-    </>   
                   </div>
                 </div>
 
@@ -562,15 +548,19 @@ export default function SearchScreen(props) {
                   {users.length === 0 && (
                     <MessageBox>No User Found</MessageBox>
                   )}
-                  {users.map((user) => (
-                    <User key={user._id} user={user}></User>
+
+{users
+                  .filter(user => user.image) // Filter users who have an image
+                  .map(user => (
+                    <User key={user.slug} user={user} />
                   ))}
+
                 </div>
                 <div className='search_page_desktop_right_bottom' >
                   {[...Array(pages).keys()].map((x) => (
                     <LinkContainer
                       key={x + 1}
-                      className="mx-1"
+                      className="link_container"
                       to={{
                         pathname: '/search',
                         search: getFilterUrl({ page: x + 1 }, true),
@@ -599,15 +589,15 @@ export default function SearchScreen(props) {
                   <div className='search_page_mobile_top_child_1_left_sort' >
                     <span className='search_page_mobile_top_child_1_left_sort_icon' ><SortIcon /></span>
                     <select className='search_page_mobile_top_child_1_left_sort_select'
-                     value={order}
-                     onChange={(e) => {
-                       navigate(getFilterUrl({ order: e.target.value }));
-                     }}
+                      value={order}
+                      onChange={(e) => {
+                        navigate(getFilterUrl({ order: e.target.value }));
+                      }}
                     >
                       <option>Sort</option>
                       <option value="newest">Newes Users</option>
-                        <option value="lowest">Young</option>
-                        <option value="highest">Old</option>
+                      <option value="lowest">Young</option>
+                      <option value="highest">Old</option>
                     </select>
                   </div>
 
@@ -660,23 +650,25 @@ export default function SearchScreen(props) {
               {users.length === 0 && (
                 <MessageBox>No User Found</MessageBox>
               )}
-              {users.map((user) => (
-                <User key={user._id} user={user}></User>
-              ))}
+              {users
+                  .filter(user => user.image) // Filter users who have an image
+                  .map(user => (
+                    <User key={user.slug} user={user} />
+                  ))}
 
             </div>
             <div className='search_page_mobile_bottom' >
               {[...Array(pages).keys()].map((x) => (
                 <LinkContainer
                   key={x + 1}
-                  className="mx-1"
+                  className="link_container"
                   to={{
                     pathname: '/search',
                     search: getFilterUrl({ page: x + 1 }, true),
                   }}
                 >
                   <Button
-                    className={Number(page) === x + 1 ? 'text-bold' : ''}
+                    className={Number(page) === x + 1 ? 'pagination_link' : ''}
                     variant="light"
                     aria-current={Number(page) === x + 1 ? 'page' : undefined}
                   >
@@ -785,17 +777,7 @@ export default function SearchScreen(props) {
 
                     </div>
                   </div>
-                  <div className='search_page_desktop_left_filter_con' >
-                    <div className='search_page_desktop_left_filter_top' >
-                      <span>Age Range</span>
-                    </div>
-                    <div className='search_page_desktop_left_filter_bottom' >
-                      <span>20yr to 50yr</span>
-                      <span>20yr to 50yr</span>
-                      <span>20yr to 50yr</span>
-                      <span>20yr to 50yr</span>
-                    </div>
-                  </div>
+                
                   <div className='search_page_desktop_left_filter_con' >
                     <div className='search_page_desktop_left_filter_top' >
                       <span>Size</span>

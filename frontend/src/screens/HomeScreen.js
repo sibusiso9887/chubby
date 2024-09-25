@@ -10,6 +10,8 @@ import User from "../components/User";
 import { useNavigate } from "react-router-dom";
 import { Store } from "../Store";
 
+import CircularProgress from '@mui/material/CircularProgress';
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "FETCH_REQUEST":
@@ -27,7 +29,7 @@ function HomeScreen() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { userInfo } = state;
 
-  
+
 
   const navigate = useNavigate();
 
@@ -77,48 +79,45 @@ function HomeScreen() {
     }
   }, [navigate, userInfo]);
 
-  return ( 
+  return (
     <div className='home_page'>
       <Helmet>
         <title>Home</title>
       </Helmet>
       {loading ? (
-        <LoadingBox />
+        <div className='loading' >
+        <CircularProgress />
+                  </div>
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         <>
-          <div className='home_page_desktop'> 
+          <div className='home_page_desktop'>
             <DesktopHeader />
-            <div className='home_page_desktop_banner' >
-              <img src='/banner.jpg' alt='' className='home_page_desktop_banner_img' />
-            </div>
-            <div className='home_page_desktop_user_list' >
-              <span className='home_page_desktop_user_list_top_heading' >New Users</span>
+            
+        
               <div className='home_page_desktop_user_list_bottom_con' >
-              {users
-  .filter(user => user.image) // Filter users who have an image
-  .map(user => (
-    <User key={user.slug} user={user} />
-  ))}
+                {users
+                  .filter(user => user.image) // Filter users who have an image
+                  .map(user => (
+                    <User key={user.slug} user={user} />
+                  ))}
 
               </div>
             </div>
-          </div>
+          
           <div className='home_page_mobile'>
             <MobileHeader />
-            <div className='home_page_mobile_banner' >
-              <img src='/banner.jpg' alt='' className='home_page_mobile_banner_img' />
-            </div>
-            <div className='home_page_mobile_user_list' >
-              <span className='home_page_mobile_user_list_top_heading' >New Users</span>
+            
               <div className='home_page_mobile_user_list_bottom_con' >
-                {users.map((user) => (
-                  <User key={user.slug} user={user} />
-                ))}
+              {users
+                  .filter(user => user.image) // Filter users who have an image
+                  .map(user => (
+                    <User key={user.slug} user={user} />
+                  ))}
               </div>
             </div>
-          </div>
+        
         </>
       )}
     </div>

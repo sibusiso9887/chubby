@@ -1,22 +1,20 @@
 .mobile_header {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     width: 100vw;
+    height: 75px;
     background-color: white;
 }
 
-.mobile_header_top {
-    display: flex; 
-    align-items: center;
-}
 
-.mobile_header_top_left {
+
+.mobile_header_left {
     display: flex;
     align-items: center;
     width: 25%; 
 }
  
-.mobile_header_top_center {
+.mobile_header_center {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,11 +22,12 @@
 }
 
 
-.mobile_header_top_center_logo {
-    width: 75px;
+.mobile_header_center_logo {
+    width: 140px;
+    height: 60px;
 }
 
-.mobile_header_top_right {
+.mobile_header_right {
     width: 25%;
 display: flex;
 align-items: center;
@@ -37,8 +36,14 @@ padding-right: 15px;
 
 }
 
-.mobile_header_top_right_icon {
+.mobile_header_right_icon {
 color: black;
+}
+
+.mobile_header_right_profile {
+    width: 40px;
+    height: 40px;
+    border-radius: 360px;
 }
 
 /*drawer*/

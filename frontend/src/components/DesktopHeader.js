@@ -89,7 +89,7 @@ function DesktopHeader() {
         </div>
         <div className='mobile_header_drawer_bottom' >
 
-          <button type='submit' className='mobile_header_drawer_bottom_logout' >
+          <button type='submit' className='mobile_header_drawer_bottom_logout' onClick={signoutHandler} >
             <span className='mobile_header_drawer_bottom_logout_icon' ><LogoutIcon /></span>
             <span className='mobile_header_drawer_bottom_logout_text' >Logout</span>
           </button>

@@ -20,17 +20,17 @@ const reducer = (state, action) => {
     case 'UPDATE_FAIL':
       return { ...state, loadingUpdate: false };
 
-      case 'UPLOAD_REQUEST':
-        return { ...state, loadingUpload: true, errorUpload: '' };
-      case 'UPLOAD_SUCCESS':
-        return {
-          ...state,
-          loadingUpload: false,
-          errorUpload: '',
-        };
-      case 'UPLOAD_FAIL':
-        return { ...state, loadingUpload: false, errorUpload: action.payload };
-  
+    case 'UPLOAD_REQUEST':
+      return { ...state, loadingUpload: true, errorUpload: '' };
+    case 'UPLOAD_SUCCESS':
+      return {
+        ...state,
+        loadingUpload: false,
+        errorUpload: '',
+      };
+    case 'UPLOAD_FAIL':
+      return { ...state, loadingUpload: false, errorUpload: action.payload };
+
 
     default:
       return state;
@@ -50,35 +50,27 @@ export default function CreateProfile() {
   const [country, setCountry] = useState(userInfo.country);
   const [personality, setPersonality] = useState(userInfo.personality);
   const [mindset, setMindset] = useState(userInfo.mindset);
-  const [images, setImages] = useState([]);
   const [age, setAge] = useState(userInfo.age);
   const [province, setProvince] = useState(userInfo.province);
   const [city, setCity] = useState(userInfo.city);
-  
-  const [image_1, setImage_1] = useState(userInfo.image_1);
-  const [image_2, setImage_2] = useState(userInfo.image_2);
-  const [image_3, setImage_3] = useState(userInfo.image_3);
-  const [image_4, setImage_4] = useState(userInfo.image_4);
-  const [image_5, setImage_5] = useState(userInfo.image_5);
-  const [banner, setBanner] = useState(userInfo.banner);
-  const [image, setImage] = useState('');
- 
+
+
+
   const [phone, setPhone] = useState(userInfo.phone);
   const [whatsapp, setWhatsapp] = useState(userInfo.whatsapp);
   const [instagram, setInstagram] = useState(userInfo.instagram);
-  
+
   const [link, setLink] = useState(userInfo.link);
   const [high_school, setHigh_school] = useState(userInfo.high_school);
   const [primary_school, setPrimary_school] = useState(userInfo.primary_school);
   const [college, setCollege] = useState(userInfo.college);
   const [about_me, setAbout_me] = useState(userInfo.about_me);
-  const [philosophy, setPhilosophy] = useState(userInfo.philosophy);
 
 
-  const [{ loading,loadingUpdate,error,loadingUpload }, dispatch] = useReducer(reducer, {
+  const [{ loading, loadingUpdate, error, loadingUpload }, dispatch] = useReducer(reducer, {
     loadingUpdate: false,
     loading: true,
-      error: '',
+    error: '',
   });
 
   const submitHandler = async (e) => {
@@ -100,14 +92,7 @@ export default function CreateProfile() {
           age,
           province,
           city,
-          image_1,
-          image_2,
-          image_3,
-          image_4,
-          image_5,
          
-          banner,
-          image,
           phone,
           whatsapp,
           instagram,
@@ -115,9 +100,8 @@ export default function CreateProfile() {
           high_school,
           college,
           about_me,
-          philosophy,
           primary_school,
-         
+
         },
         {
           headers: { Authorization: `Bearer ${userInfo.token}` },
@@ -138,35 +122,9 @@ export default function CreateProfile() {
     }
   };
 
- 
-  const uploadFileHandler = async (e, forImages) => {
-    const file = e.target.files[0];
-    const bodyFormData = new FormData();
-    bodyFormData.append('file', file);
-    
-    try {
-      dispatch({ type: 'UPLOAD_REQUEST' });
-      
-      // Update API endpoint if needed
-      const { data } = await axios.post('/api/upload', bodyFormData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-          Authorization: `Bearer ${userInfo.token}`, // Add authorization if needed
-        },
-      });
-      
-      dispatch({ type: 'UPLOAD_SUCCESS' });
+
   
-    
-        setImage(data.secure_url);
-     
-      toast.success('Image uploaded successfully. Click Update to apply it.');
-    } catch (err) {
-      toast.error(getError(err));
-      dispatch({ type: 'UPLOAD_FAIL', payload: getError(err) });
-    }
-  };
-  
+
 
   return (
     <div className="create_profile_page">
@@ -178,8 +136,6 @@ export default function CreateProfile() {
         <img src='/logo.png' className='create_profile_page_top_logo' alt='' />
       </div>
 
-      <img src={userInfo.image} className='create_profile_page_top_logo' alt='' />
-
       <div className='create_profile_page_bottom'>
 
         <Form className='create_profile_form' onSubmit={submitHandler}>
@@ -187,20 +143,7 @@ export default function CreateProfile() {
             <span>Create Profile</span>
           </div>
           <div className='create_profile_page_form_center' >
-          <Form.Group className="mb-3" controlId="imageFile">
-  <Form.Label>Upload Image</Form.Label>
-  <Form.Control type="file" onChange={(e) => uploadFileHandler(e, true)} />
-  {loadingUpload && <LoadingBox />}
-</Form.Group>
-
-<Form.Group className="mb-3" controlId="image">
-            <Form.Label>Image File</Form.Label>
-            <Form.Control
-              value={image}
-              onChange={(e) => setImage(e.target.value)}
-              required
-            />
-          </Form.Group>
+           
 
             <Form.Group className="create_profile_page_form_form_input_container" controlId="name">
               <Form.Label className='create_profile_page_form_form_input_container_label' > Name</Form.Label>
@@ -211,37 +154,9 @@ export default function CreateProfile() {
                 className='register_form_center_input'
               />
             </Form.Group>
-            
-            <Form.Group className="create_profile_page_form_form_input_container" controlId="gender">
-              <Form.Label className='create_profile_page_form_form_input_container_label'>Gender</Form.Label>
-              <Form.Select
-                value={gender}
-                onChange={(e) => setGender(e.target.value)}
-                required
-                className='register_form_center_input'
-              >
-                <option value="">Select Gender</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-              </Form.Select>
-            </Form.Group>
 
-            <Form.Group className="create_profile_page_form_form_input_container" controlId="gender_pref">
-              <Form.Label className='create_profile_page_form_form_input_container_label'>Gender Pref</Form.Label>
-              <Form.Select
-                value={gender_pref}
-                onChange={(e) => setGender_pref(e.target.value)}
-                required
-                className='register_form_center_input'
-              >
-                <option value="">Select Gender</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-              </Form.Select>
-            </Form.Group>
-            
             <Form.Group className="create_profile_page_form_form_input_container" controlId="category">
-              <Form.Label className='create_profile_page_form_form_input_container_label'>Category</Form.Label>
+              <Form.Label className='create_profile_page_form_form_input_container_label'>What are you looking for</Form.Label>
               <Form.Select
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
@@ -249,16 +164,16 @@ export default function CreateProfile() {
                 className='register_form_center_input'
               >
                 <option value="">What are looking for</option>
-                <option value="blinddate">Blind date</option>
+                <option value="blind date">Blind date</option>
                 <option value="onenight">One Night</option>
                 <option value="friends">Friends</option>
-                <option value="openrelationship">Open Relationship</option>
-                <option value="seriousrelationship">Serious Relationship</option>
-                <option value="casualrelationship">Casual Relationship</option>
-                <option value="speeddate">Speed Date</option>
-                <option value="friendswithbenefits">Friends With Benefits</option>
-                <option value="longdistancerelationship">Long Distance Relationship</option>
-              
+                <option value="open relationship">Open Relationship</option>
+                <option value="serious relationship">Serious Relationship</option>
+                <option value="casual relationship">Casual Relationship</option>
+                <option value="speed date">Speed Date</option>
+                <option value="friends with benefits">Friends With Benefits</option>
+                <option value="long distance relationship">Long Distance Relationship</option>
+
               </Form.Select>
             </Form.Group>
 
@@ -279,38 +194,38 @@ export default function CreateProfile() {
             </Form.Group>
 
             <>
-      {userInfo.gender === 'male' ? (
-        <Form.Group className="create_profile_page_form_form_input_container" controlId="body">
-          <Form.Label className='create_profile_page_form_form_input_container_label'>Body 1</Form.Label>
-          <Form.Select
-            value={body}
-            onChange={(e) => setBody(e.target.value)}
-            required
-            className='register_form_center_input'
-          >
-            <option value="">Select body</option>
-            <option value="chubby">Chubby</option>
-            <option value="thick">Thick</option>
-          </Form.Select>
-        </Form.Group>
-      ) : (
-        <Form.Group className="create_profile_page_form_form_input_container" controlId="body">
-          <Form.Label className='create_profile_page_form_form_input_container_label'>Body 2</Form.Label>
-          <Form.Select
-            value={body}
-            onChange={(e) => setBody(e.target.value)}
-            required
-            className='register_form_center_input'
-          >
-            <option value="">Select body</option>
-            <option value="slim">Slim</option>
-            <option value="chubby">Chubby</option>
-            <option value="average">Average</option>
-            
-          </Form.Select>
-        </Form.Group>
-      )}
-    </>   
+              {userInfo.gender === 'female' ? (
+                <Form.Group className="create_profile_page_form_form_input_container" controlId="body">
+                  <Form.Label className='create_profile_page_form_form_input_container_label'>Body 1</Form.Label>
+                  <Form.Select
+                    value={body}
+                    onChange={(e) => setBody(e.target.value)}
+                    required
+                    className='register_form_center_input'
+                  >
+                    <option value="">Select body</option>
+                    <option value="chubby">Chubby</option>
+                    <option value="thick">Thick</option>
+                  </Form.Select>
+                </Form.Group>
+              ) : (
+                <Form.Group className="create_profile_page_form_form_input_container" controlId="body">
+                  <Form.Label className='create_profile_page_form_form_input_container_label'>Body 2</Form.Label>
+                  <Form.Select
+                    value={body}
+                    onChange={(e) => setBody(e.target.value)}
+                    required
+                    className='register_form_center_input'
+                  >
+                    <option value="">Select body</option>
+                    <option value="slim">Slim</option>
+                    <option value="chubby">Chubby</option>
+                    <option value="average">Average</option>
+
+                  </Form.Select>
+                </Form.Group>
+              )}
+            </>
 
             <Form.Group className="create_profile_page_form_form_input_container" controlId="country">
               <Form.Label className='create_profile_page_form_form_input_container_label'>Country</Form.Label>
@@ -410,6 +325,7 @@ export default function CreateProfile() {
                 value={instagram}
                 onChange={(e) => setInstagram(e.target.value)}
                 required
+                placeholder='instagram @username'
                 className='register_form_center_input'
               />
             </Form.Group>
@@ -419,6 +335,7 @@ export default function CreateProfile() {
                 value={link}
                 onChange={(e) => setLink(e.target.value)}
                 required
+                placeholder='linktree Link'
                 className='register_form_center_input'
               />
             </Form.Group>
@@ -458,68 +375,6 @@ export default function CreateProfile() {
                 className='register_form_center_input'
               />
             </Form.Group>
-           
-        
-
-            <Form.Group className="create_profile_page_form_form_input_container" controlId="image_1">
-              <Form.Label className='create_profile_page_form_form_input_container_label' > image 1</Form.Label>
-              <Form.Control
-                value={image_1}
-                onChange={(e) => setImage_1(e.target.value)}
-                required
-                className='register_form_center_input'
-              />
-            </Form.Group>
-            <Form.Group className="create_profile_page_form_form_input_container" controlId="image_2">
-              <Form.Label className='create_profile_page_form_form_input_container_label' > image 2</Form.Label>
-              <Form.Control
-                value={image_2}
-                onChange={(e) => setImage_2(e.target.value)}
-                required
-                className='register_form_center_input'
-              />
-            </Form.Group>
-            <Form.Group className="create_profile_page_form_form_input_container" controlId="image_3">
-              <Form.Label className='create_profile_page_form_form_input_container_label' > image 3</Form.Label>
-              <Form.Control
-                value={image_3}
-                onChange={(e) => setImage_3(e.target.value)}
-                required
-                className='register_form_center_input'
-              />
-            </Form.Group>
-            <Form.Group className="create_profile_page_form_form_input_container" controlId="image_4">
-              <Form.Label className='create_profile_page_form_form_input_container_label' > image 4</Form.Label>
-              <Form.Control
-                value={image_4}
-                onChange={(e) => setImage_4(e.target.value)}
-                required
-                className='register_form_center_input'
-              />
-            </Form.Group>
-
-            <Form.Group className="create_profile_page_form_form_input_container" controlId="image_5">
-              <Form.Label className='create_profile_page_form_form_input_container_label' > image 5</Form.Label>
-              <Form.Control
-                value={image_5}
-                onChange={(e) => setImage_5(e.target.value)}
-                required
-                className='register_form_center_input'
-              />
-            </Form.Group>
-
-            <Form.Group className="create_profile_page_form_form_input_container" controlId="banner">
-              <Form.Label className='create_profile_page_form_form_input_container_label' > banner</Form.Label>
-              <Form.Control
-                value={banner}
-                onChange={(e) => setBanner(e.target.value)}
-                required
-                className='register_form_center_input'
-              />
-            </Form.Group>
-
-
-
           </div>
           <div className='create_profile_page_form_bottom' >
             <Button className='create_profile_page_form_bottom_btn' type="submit">Create Profile</Button>

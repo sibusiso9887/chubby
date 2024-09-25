@@ -48,9 +48,9 @@ export default function ResetPasswordScreen() {
       <Helmet>
         <title>Reset Password</title>
       </Helmet>
-      <h1 className="my-3">Reset Password</h1>
+      <h1 >Reset Password</h1>
       <Form onSubmit={submitHandler}>
-        <Form.Group className="mb-3" controlId="password">
+        <Form.Group  controlId="password">
           <Form.Label>New Password</Form.Label>
           <Form.Control
             type="password"
@@ -58,7 +58,7 @@ export default function ResetPasswordScreen() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="confirmPassword">
+        <Form.Group  controlId="confirmPassword">
           <Form.Label>Confirm New Password</Form.Label>
           <Form.Control
             type="password"
@@ -67,7 +67,7 @@ export default function ResetPasswordScreen() {
           />
         </Form.Group>
 
-        <div className="mb-3">
+        <div >
           <Button type="submit">Reset Password</Button>
         </div>
       </Form>

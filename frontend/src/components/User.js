@@ -12,22 +12,20 @@ function User(props) {
   const { user } = props;
   return (
     <div className='user_card'>
-      <img
+      <img 
         src={user.image}
         alt={user.name}
         className='user_card_img'
       />
       <div className='user_card_details'>
         <Link
-          to={`/user/${user.slug}`}
+          to={`/userprofile/${user.slug}`}
           style={{ textDecoration: 'none', color: 'black' }}
         >
           <div className='user_card_details_top'>
             <span className='user_card_details_name'>{user.name},</span>
             <span className='user_card_details_age'>{user.age}</span>
-            <span className='user_card_details_verification'>
-              <VerifiedIcon />
-            </span>
+           
           </div>
         </Link>
         <div className='user_card_details_bottom'>

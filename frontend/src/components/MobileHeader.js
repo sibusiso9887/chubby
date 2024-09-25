@@ -89,8 +89,8 @@ function MobileHeader() {
 
         </div>
         <div className='mobile_header_drawer_bottom' >
-
-          <button type='submit' className='mobile_header_drawer_bottom_logout' >
+ 
+          <button type='submit' className='mobile_header_drawer_bottom_logout' onClick={signoutHandler} >
             <span className='mobile_header_drawer_bottom_logout_icon' ><LogoutIcon /></span>
             <span className='mobile_header_drawer_bottom_logout_text' >Logout</span>
           </button>
@@ -104,12 +104,12 @@ function MobileHeader() {
  
   return (
     <div className='mobile_header' >
-      <div className='mobile_header_top' >
-        <div className='mobile_header_top_left' >
+      
+        <div className='mobile_header_left' >
 
           <Button onClick={toggleDrawer(true)}>
             <span className="btn " >
-              <MenuIcon fontSize="small" />
+              <MenuIcon fontSize="large" />
 
             </span>
           </Button>
@@ -118,26 +118,23 @@ function MobileHeader() {
           </Drawer>
 
         </div>
-        <div className='mobile_header_top_center' >
+        <div className='mobile_header_center' >
           <Link to='/'  >
-            <img src='/logo.png' alt='' className='mobile_header_top_center_logo' />
+            <img src='/logo.png' alt='' className='mobile_header_center_logo' />
           </Link>
         </div>
 
-        <div className='mobile_header_top_right' >
+        <div className='mobile_header_right' >
           <Link style={{ textDecoration: 'none' }} to='/'>
-            <span className='mobile_header_top_right_icon' >
-              <PersonIcon />
+            <span className='mobile_header_right_icon' >
+
+              <img src={userInfo.image} alt='' className='mobile_header_right_profile' />
             </span>
           </Link>
 
         </div>
       </div>
-      <div className='mobile_header_bottom' >
-
-      </div>
-
-    </div>
+     
   )
 }
 

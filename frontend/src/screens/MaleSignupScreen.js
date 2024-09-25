@@ -107,13 +107,13 @@ export default function MaleSignupScreen() {
               >
                 <option value="">Select Gender</option>
                 <option value="male">Male</option>
-                <option value="female">Female</option>
+              
                 
               </Form.Select>
             </Form.Group>
 
 
-            <Form.Group className="create_profile_page_form_form_input_container" controlId="gender">
+            <Form.Group className="create_profile_page_form_form_input_container" controlId="gender_pref">
               <Form.Label className='create_profile_page_form_form_input_container_label'>Gender Pref</Form.Label>
               <Form.Select
                 value={gender_pref}
@@ -121,8 +121,8 @@ export default function MaleSignupScreen() {
                 required
                 className='register_form_center_input'
               >
-                <option value=""> Gender pref</option>
-                <option value="male">Male</option>
+                <option value="">Select Gender pref</option>
+            
                 <option value="female">Female</option>
                 
               </Form.Select>

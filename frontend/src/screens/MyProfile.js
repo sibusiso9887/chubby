@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useContext, useEffect, useReducer, useRef, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import React from 'react'
-import '../userpage.css'
+import '../MyProfile.css'
 import { Helmet } from 'react-helmet-async';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
@@ -14,12 +14,13 @@ import { toast } from 'react-toastify';
 
 
 //icons 
+import SettingsIcon from '@mui/icons-material/Settings';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import PlaceIcon from '@mui/icons-material/Place';
 import InfoIcon from '@mui/icons-material/Info';
 import VerifiedIcon from '@mui/icons-material/Verified';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-
+import CloseIcon from '@mui/icons-material/Close';
 
 import EmailIcon from '@mui/icons-material/Email';
 import CallIcon from '@mui/icons-material/Call';
@@ -28,13 +29,17 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import LocationCityIcon from '@mui/icons-material/LocationCity';
 import LinkIcon from '@mui/icons-material/Link';
 import AddLinkIcon from '@mui/icons-material/AddLink';
-
+import FlagIcon from '@mui/icons-material/Flag';
+import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-
+import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import CircularProgress from '@mui/material/CircularProgress';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
+import DesktopHeader from '../components/DesktopHeader';
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -130,543 +135,686 @@ function MyProfile() {
   const { cart, userInfo } = state;
 
 
- 
+
   return loading ? (
-    <LoadingBox /> 
+    <div className='loading' >
+        <CircularProgress />
+                  </div>
   ) : error ? (
-    <MessageBox variant="danger">{error}</MessageBox>
+    <MessageBox variant="danger">{error}</MessageBox> 
   ) : (
-    <div className='seller_page' >
-    <div className='seller_page_desktop' >
-      <div className='seller_page_desktop_con' >
-        
-        <div className='seller_page_desktop_con_right' >
-          <div className='seller_page_desktop_con_right_top' >
-            <div className='seller_page_desktop_con_right_top_banner' >
-              <img src={user.banner} alt='' className='seller_page_desktop_con_right_top_banner_img' />
-            </div>
-            <div className='seller_page_desktop_con_right_top_bio' >
+    <div className='my_profile' >
+      <div className='my_profile_desktop' >
+        <DesktopHeader />
+        <div className='my_profile_desktop_con' >
+          <div className='my_profile_desktop_left' >
 
-
-              <div className='seller_page_desktop_con_right_top_bio_left' >
-                <img src={user.image} alt='' className='seller_page_desktop_con_right_top_bio_left_logo' />
-              </div>
-
-
-              <div className='seller_page_desktop_con_right_top_bio_right' >
-                <div className='seller_page_desktop_con_right_top_bio_right_user_info' >
-                <div className='seller_page_desktop_con_right_top_bio_right_user_info_left' >
-                <span className='seller_page_desktop_con_right_top_bio_right_user_info_name' >{user.name},</span>
-                  <span className='seller_page_desktop_con_right_top_bio_right_user_info_age' >{user.age}</span>
-                  <span className='seller_page_desktop_con_right_top_bio_right_user_info_verification' ><VerifiedIcon fontSize='small' /></span>
-                
-                </div>
-                <div className='seller_page_desktop_con_right_top_bio_right_user_info_right' >
-                <Link to='/profile' style={{textDecoration: 'none'}} >
-                    <span className='seller_page_desktop_con_right_top_bio_right_user_info_edit_profile_link' >Edit Profile</span>
-                  </Link>
-                  </div>
-
-                  
-
-                </div>
-                <div className='seller_page_desktop_con_right_top_bio_right_location' >
-                  <span className='seller_page_desktop_con_right_top_bio_right_location_icon' ><PlaceIcon /></span>
-                  <span className='seller_page_desktop_con_right_top_bio_right_location_province' >{user.province},</span>
-                  <span className='seller_page_desktop_con_right_top_bio_right_location_city' >{user.city}</span>
-                </div>
-                <div className='seller_page_desktop_con_right_top_bio_right_contact' >
-                <span className='seller_page_desktop_con_right_top_bio_right_contact_icon' ><CallIcon /></span>
-
-                <Link to='/' >    <span className='seller_page_desktop_con_right_top_bio_right_contact_text' >{user.phone}</span></Link>
-              </div>
-
-              <div className='seller_page_desktop_con_right_top_bio_right_contact' >
-                <span className='seller_page_desktop_con_right_top_bio_right_contact_icon' ><WhatsAppIcon /></span>
-
-                <Link to='/' >    <span className='seller_page_desktop_con_right_top_bio_right_contact_text' >{user.whatsapp}</span></Link>
-              </div>
-
-              <div className='seller_page_desktop_con_right_top_bio_right_contact' >
-                <span className='seller_page_desktop_con_right_top_bio_right_contact_icon' ><LinkIcon /></span>
-                <Link to='/' > <span className='seller_page_desktop_con_right_top_bio_right_contact_text' >{user.link}</span>
-                </Link>
-              </div>
-
-              </div>
-
-            </div>
-
-          </div>
-          <div className='seller_page_desktop_con_right_bottom' >
-            <Box sx={{ width: '100%' }}>
-              <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                <Tab label="Images" {...a11yProps(0)} />
-                <Tab label="Details" {...a11yProps(1)} />
-               
-                </Tabs>
-              </Box>
-              <CustomTabPanel value={value} index={0}>
-                <div className='seller_page_desktop_con_right_bottom_select_details' >
-                  <div className='seller_page_desktop_con_right_bottom_select_details_product_list' >
-                    <img src={user.image_1} alt='' className='seller_page_desktop_con_right_bottom_select_details_image_list' />
-                    <img src={user.image_2} alt='' className='seller_page_desktop_con_right_bottom_select_details_image_list' />
-                    <img src={user.image_3} alt='' className='seller_page_desktop_con_right_bottom_select_details_image_list' />
-                    <img src={user.image_4} alt='' className='seller_page_desktop_con_right_bottom_select_details_image_list' />
-                    <img src={user.image_5} alt='' className='seller_page_desktop_con_right_bottom_select_details_image_list' />
-                 
-                  </div>
-                </div>
-              </CustomTabPanel>
-              <CustomTabPanel value={value} index={1}>
-                <div className='seller_page_desktop_con_right_bottom_select_details' >
-                  <div className='seller_page_desktop_con_right_bottom_select_details_seller_info' >
-                    <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_con' >
-                      <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_name' >
-                        <h3>{user.name}</h3>
-                      </div>
-
-
-
-                      <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_2' >
-                        <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_top' >
-                          <h5>Location</h5>
-                        </div>
-                        <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_bottom_2' >
-                          <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card' >
-                            <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_left' >
-                              <span>City</span>
-                            </div>
-                            <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_right' >
-                              <span>{user.city}</span>
-                            </div>
-                          </div>
-                          <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card' >
-                            <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_left' >
-                              <span>Province</span>
-                            </div>
-                            <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_right' >
-                              <span>{user.province}</span>
-                            </div>
-                          </div>
-                          <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card' >
-                            <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_left' >
-                              <span>Country</span>
-                            </div>
-                            <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_right' >
-                              <span>{user.country}</span>
-                            </div>
-                          </div>
-                        </div>
-
-                      </div>
-
-                      <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_2' >
-                        <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_top' >
-                          <h5>Scchool</h5>
-                        </div>
-                        <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_bottom_2' >
-                          <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card' >
-                            <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_left' >
-                              <span>High School</span>
-                            </div>
-                            <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_right' >
-                              <span>{user.high_school}</span>
-                            </div>
-                          </div>
-                          <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card' >
-                            <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_left' >
-                              <span>Primary</span>
-                            </div>
-                            <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_right' >
-                              <span>{user.primary_school}</span>
-                            </div>
-                          </div>
-                          <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card' >
-                            <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_left' >
-                              <span>College</span>
-                            </div>
-                            <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_right' >
-                              <span> {user.college}</span>
-                            </div>
-                          </div>
-                        </div>
-
-                      </div>
-
-                  
-
-                      <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_2' >
-                        <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_top' >
-                          <h5>Contact Information</h5>
-                        </div>
-                        <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_bottom_2' >
-
-                          <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card' >
-                            <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_left_contact' >
-                              <span><EmailIcon /></span>
-                            </div>
-                            <Link to='' style={{ textDecoration: 'none', color: 'black' }} >
-                              <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_right_contact' >
-                                <span>{user.email}</span>
-                              </div>
-                            </Link>
-                          </div>
-                          <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card' >
-                            <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_left_contact' >
-                              <span><CallIcon /></span>
-                            </div>
-                            <Link to='' style={{ textDecoration: 'none', color: 'black' }} >
-                              <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_right_contact' >
-                                <span>{user.phone}</span>
-                              </div>
-                            </Link>
-                          </div>
-                          <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card' >
-                            <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_left_contact' >
-                              <span><WhatsAppIcon /></span>
-                            </div>
-                            <Link to='' style={{ textDecoration: 'none', color: 'black' }} >
-                              <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_right_contact' >
-                                <span>{user.whatsapp}</span>
-                              </div>
+          {user.image ? (<>
+            <img src={user.image} alt='' className='my_profile_desktop_left_img' />
+          
+                      </>) : (<>
+                        <div className='my_profile_desktop_left_img_skeleton' >
+                          <div className='my_profile_desktop_left_img_skeleton_con' >
+                            <Link to='/uploadimage' style={{ textDecoration: 'none' }} >
+                              <div className='my_profile_desktop_left_img_skeleton_icon' ><CameraAltIcon fontSize="large" /></div>
                             </Link>
                           </div>
                         </div>
-                      </div>
+                      </>)}
 
-                    </div>
-                    <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_description' >
-                      <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_description_top' >
-                        <h5>Personality</h5>
-                      </div>
-                      <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_description_bottom' >
-                        <li>{user.personality}</li>
-                      </div>
-                    </div>
-
-                    <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_description' >
-                      <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_description_top' >
-                        <h5>Looking For</h5>
-                      </div>
-                      <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_description_bottom' >
-                        <li>{user.category}</li>
-                      </div>
-                    </div>
-                    
-                     <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_description' >
-                      <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_description_top' >
-                        <h5>Mindset</h5>
-                      </div>
-                      <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_description_bottom' >
-                        <li>{user.mindset}</li>
-                      </div>
-                    </div>
-                 
-                    <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_description' >
-                      <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_description_top' >
-                        <h5>About me </h5>
-                      </div>
-                      <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_description_bottom' >
-                        <p>{user.about_me}</p>
-                      </div>
-                    </div>
-                   
-                    
-                  </div>
-                </div>
-              </CustomTabPanel>
-             
-            </Box>
-          </div>
-        </div>
-      </div>
-    </div>
-   
-    <div className='seller_page_mobile' >
-      <div className='seller_page_desktop_con' >
-       
-        <div className='seller_page_desktop_con_right' >
-          <div className='seller_page_desktop_con_right_top' >
-            <div className='seller_page_desktop_con_right_top_banner' >
-              <img src={user.banner} alt='' className='seller_page_desktop_con_right_top_banner_img' />
-            </div>
-            <Link to='/' >    
-                <span className='seller_page_desktop_con_right_top_banner_arrow' >
-                  <ArrowBackIcon />
+            
+            <div className='my_profile_desktop_left_contacts' >
+              <a style={{ textDecoration: 'none' }} href={`https://instagram.com/${user.instagram}`}>
+                <span className='my_profile_desktop_left_contacts_link' >
+                  <InstagramIcon />
                 </span>
+              </a>
+              <a style={{ textDecoration: 'none' }} href={`tel:${user.whatsapp}`} >
+                <span className='my_profile_desktop_left_contacts_link_chat' >
+                  Message
+                </span> 
+              </a>
+              <a style={{ textDecoration: 'none' }} href={`tel:${user.phone}`}>
+                <span className='my_profile_desktop_left_contacts_link' >
+                  <CallIcon />
+                </span>
+              </a>
+
+
+            </div>
+          </div>
+          <div className='my_profile_desktop_right' >
+            <div className='my_profile_desktop_right_top' >
+              <span className='my_profile_desktop_right_top_name' >{user.name},</span>
+              <span className='my_profile_desktop_right_top_age' >{user.age}</span>
+             <div className='my_profile_desktop_right_top_edit_profile_link_con' >
+              <Link style={{ textDecoration: 'nome',color: 'black' }} to='/profile' >
+                  <span className='my_profile_desktop_right_top_edit_profile_link' >
+                    <SettingsIcon />
+                  </span>
+               
                 </Link>
-            <div className='seller_page_desktop_con_right_top_bio' >
-           
-                
-              <div className='seller_page_desktop_con_right_top_bio_left' >
-                <img src={user.image} alt='' className='seller_page_desktop_con_right_top_bio_left_logo' />
-              </div>
-
-
-              <div className='seller_page_desktop_con_right_top_bio_right' >
-              <div className='seller_page_desktop_con_right_top_bio_right_user_info' >
-                <div className='seller_page_desktop_con_right_top_bio_right_user_info_left' >
-                <span className='seller_page_desktop_con_right_top_bio_right_user_info_name' >{user.name},</span>
-                  <span className='seller_page_desktop_con_right_top_bio_right_user_info_age' >{user.age}</span>
-                  <span className='seller_page_desktop_con_right_top_bio_right_user_info_verification' ><VerifiedIcon fontSize='small' /></span>
-                
                 </div>
-                <div className='seller_page_desktop_con_right_top_bio_right_user_info_right' >
-                <Link to='/profile' style={{textDecoration: 'none'}} >
-                    <span className='seller_page_desktop_con_right_top_bio_right_user_info_edit_profile_link' >Edit Profile</span>
-                  </Link>
-                  </div>
+            </div>
 
-                  
-
+            <div className='my_profile_desktop_right_location' >
+              <div className='my_profile_desktop_right_location_card' >
+                <div className='my_profile_desktop_right_location_card_left' >
+                  <span><FlagIcon fontSize="medium" /></span>
                 </div>
-                <div className='seller_page_desktop_con_right_top_bio_right_location' >
-
-                {userInfo.country === 'india' ? (
-                <img
-                  src=''
-                  alt='Indian Flag'
-                  className='user_card_details_location_img'
-                />
-              ) : null}
-
-              {userInfo.country === 'usa' ? (
-                <img
-                  src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Flag_of_the_United_States_%28DoS_ECA_Color_Standard%29.svg/1920px-Flag_of_the_United_States_%28DoS_ECA_Color_Standard%29.svg.png'
-                  alt='usa Flag'
-                  className='user_card_details_location_img'
-                />
-              ) : null}
-
-              {userInfo.country === 'sa' ? (
-                <img
-                  src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Flag_of_South_Africa.svg/1280px-Flag_of_South_Africa.svg.png'
-                  alt='sa Flag'
-                  className='user_card_details_location_img'
-                />
-              ) : null}
-
-              {userInfo.country === 'uk' ? (
-                <img
-                  src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg/1920px-Flag_of_the_United_Kingdom_%281-2%29.svg.png'
-                  alt='uk Flag'
-                  className='user_card_details_location_img'
-                />
-              ) : null}
-                
-                  <span className='seller_page_desktop_con_right_top_bio_right_location_province' >{user.province},</span>
-                  <span className='seller_page_desktop_con_right_top_bio_right_location_city' >{user.city}</span>
+                <div className='my_profile_desktop_right_location_card_right' >
+                  <span>{user.country}</span>
                 </div>
-                <div className='seller_page_desktop_con_right_top_bio_right_contact' >
-                <span className='seller_page_desktop_con_right_top_bio_right_contact_icon' ><CallIcon /></span>
-
-                <Link to='/' >    <span className='seller_page_desktop_con_right_top_bio_right_contact_text' >{user.phone}</span></Link>
               </div>
 
-              <div className='seller_page_desktop_con_right_top_bio_right_contact' >
-                <span className='seller_page_desktop_con_right_top_bio_right_contact_icon' ><WhatsAppIcon /></span>
-
-                <Link to='/' >    <span className='seller_page_desktop_con_right_top_bio_right_contact_text' >{user.whatsapp}</span></Link>
+              <div className='my_profile_desktop_right_location_card' >
+                <div className='my_profile_desktop_right_location_card_left' >
+                  <span><LocationCityIcon fontSize="medium" /></span>
+                </div>
+                <div className='my_profile_desktop_right_location_card_right' >
+                  <span>{user.city}</span>
+                </div>
               </div>
-
-              <div className='seller_page_desktop_con_right_top_bio_right_contact' >
-                <span className='seller_page_desktop_con_right_top_bio_right_contact_icon' ><LinkIcon /></span>
-                <Link to='/' > <span className='seller_page_desktop_con_right_top_bio_right_contact_text' >{user.link}</span></Link>
-              </div>
-
+              <div className='my_profile_desktop_right_location_card' >
+                <div className='my_profile_desktop_right_location_card_left' >
+                  <span><LinkIcon fontSize="medium" /></span>
+                </div>
+                <div className='my_profile_desktop_right_location_card_right' >
+                  <a href={`https://${user.link}`} >
+                    <span className='my_profile_desktop_con_right_top_bio_right_contact_text' >{user.link}</span>
+                  </a>
+                </div>
               </div>
 
             </div>
 
-          </div>
-          <div className='seller_page_desktop_con_right_bottom' >
-            <Box sx={{ width: '100%' }}>
-              <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                <Tab label="Images" {...a11yProps(0)} />
-                <Tab label="Details" {...a11yProps(1)} />
-               
-                </Tabs>
+            <div className='my_profile_desktop_right_biography ' >
+              <div className='my_profile_desktop_right_biography_top ' >
+                <span>Bio</span>
+              </div>
+              <div className='my_profile_desktop_right_biography_bottom' >
+                <p>{user.about_me}</p>
+              </div>
+            </div>
+            <div className='my_profile_desktop_right_tabs' >
+              <Box sx={{ width: '100%' }}>
+                <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                  <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+                    <Tab label="Images" {...a11yProps(0)} />
+                    <Tab label="contact" {...a11yProps(1)} />
+                    <Tab label="Details" {...a11yProps(2)} />
+                  </Tabs>
+                </Box>
+                <CustomTabPanel value={value} index={0}>
+                  <div className='my_profile_desktop_right_tab' >
+                    <div className='my_profile_desktop_right_tab_images' >
+
+
+
+
+                      {user.image_1 ? (<>
+                        <img src={user.image_1} alt='' className='my_profile_desktop_right_tab_img' />
+
+                      </>) : (<>
+                        <div className='my_profile_desktop_con_right_bottom_select_details_image_card_skeleton' >
+                          <div className='my_profile_desktop_con_right_bottom_select_details_image_card_skeleton_link' >
+                            <Link to='/uploadimageone' style={{ textDecoration: 'none' }} >
+                              <span className='my_profile_desktop_con_right_bottom_select_details_image_card_skeleton_link_icon' >
+                                +
+                              </span>
+                            </Link>
+                          </div>
+                        </div>
+                      </>)}
+
+                      {user.image_2 ? (<>
+                        <img src={user.image_2} alt='' className='my_profile_desktop_right_tab_img' />
+
+                      </>) : (<>
+                        <div className='my_profile_desktop_con_right_bottom_select_details_image_card_skeleton' >
+                          <div className='my_profile_desktop_con_right_bottom_select_details_image_card_skeleton_link' >
+                            <Link to='/uploadimagetwo' style={{ textDecoration: 'none' }} >
+                              <span className='my_profile_desktop_con_right_bottom_select_details_image_card_skeleton_link_icon' >
+                                +
+                              </span>
+                            </Link>
+                          </div>
+                        </div>
+                      </>)}
+
+                      {user.image_3 ? (<>
+                        <img src={user.image_3} alt='' className='my_profile_desktop_right_tab_img' />
+
+                      </>) : (<>
+                        <div className='my_profile_desktop_con_right_bottom_select_details_image_card_skeleton' >
+                          <div className='my_profile_desktop_con_right_bottom_select_details_image_card_skeleton_link' >
+                            <Link to='/uploadimagethree' style={{ textDecoration: 'none' }} >
+                              <span className='my_profile_desktop_con_right_bottom_select_details_image_card_skeleton_link_icon' >
+                                +
+                              </span>
+                            </Link>
+                          </div>
+                        </div>
+                      </>)}
+
+                      {user.image_4 ? (<>
+                        <img src={user.image_4} alt='' className='my_profile_desktop_right_tab_img' />
+
+                      </>) : (<>
+                        <div className='my_profile_desktop_con_right_bottom_select_details_image_card_skeleton' >
+                          <div className='my_profile_desktop_con_right_bottom_select_details_image_card_skeleton_link' >
+                            <Link to='/uploadimagefour' style={{ textDecoration: 'none' }} >
+                              <span className='my_profile_desktop_con_right_bottom_select_details_image_card_skeleton_link_icon' >
+                                +
+                              </span>
+                            </Link>
+                          </div>
+                        </div>
+                      </>)}
+                    </div>
+                  </div>
+                </CustomTabPanel>
+                <CustomTabPanel value={value} index={1}>
+                  <div className='my_profile_desktop_right_tab' >
+                    <div className='my_profile_desktop_right_tabs_con' >
+                      <div className='my_profile_desktop_right_tabs_con_card' >
+                        <div className='my_profile_desktop_right_tabs_con_card_left' >
+                          <span><FlagIcon fontSize="medium" /></span>
+                        </div>
+                        <div className='my_profile_desktop_right_tabs_con_card_right' >
+                          <span>{user.country}</span>
+                        </div>
+                      </div>
+
+                      <div className='my_profile_desktop_right_tabs_con_card' >
+                        <div className='my_profile_desktop_right_tabs_con_card_left' >
+                          <span><LocationCityIcon fontSize="medium" /></span>
+                        </div>
+                        <div className='my_profile_desktop_right_tabs_con_card_right' >
+                          <span>{user.city}</span>
+                        </div>
+                      </div>
+                      <div className='my_profile_desktop_right_tabs_con_card' >
+                        <div className='my_profile_desktop_right_tabs_con_card_left' >
+                          <span><PlaceIcon fontSize="medium" /></span>
+                        </div>
+                        <div className='my_profile_desktop_right_tabs_con_card_right' >
+                          <span>{user.province}</span>
+                        </div>
+                      </div>
+
+                    </div>
+                    <div className='my_profile_desktop_right_tabs_con' >
+                      <div className='my_profile_desktop_right_tabs_con_card' >
+                        <div className='my_profile_desktop_right_tabs_con_card_left' >
+                          <span><CallIcon fontSize="medium" /></span>
+                        </div>
+                        <div className='my_profile_desktop_right_tabs_con_card_right' >
+                          <a href={`tel:${user.phone}`} >
+                            <span  >{user.phone}</span>
+                          </a>
+                        </div>
+                      </div>
+
+                      <div className='my_profile_desktop_right_tabs_con_card' >
+                        <div className='my_profile_desktop_right_tabs_con_card_left' >
+                          <span><WhatsAppIcon fontSize="medium" /></span>
+                        </div>
+                        <div className='my_profile_desktop_right_tabs_con_card_right' >
+                          <a href={`tel:${user.whatsapp}`}  >
+                            <span  >{user.whatsapp}</span>
+                          </a>
+                        </div>
+                      </div>
+                      <div className='my_profile_desktop_right_tabs_con_card' >
+                        <div className='my_profile_desktop_right_tabs_con_card_left' >
+                          <span><InstagramIcon fontSize="medium" /></span>
+                        </div>
+                        <div className='my_profile_desktop_right_tabs_con_card_right' >
+                          <a href={`https://instagram.com/${user.instagram}`} >
+                            <span  >{user.instagram}</span>
+                          </a>
+                        </div>
+                      </div>
+                      <div className='my_profile_desktop_right_tabs_con_card' >
+                        <div className='my_profile_desktop_right_tabs_con_card_left' >
+                          <span><LinkIcon fontSize="medium" /></span>
+                        </div>
+                        <div className='my_profile_desktop_right_tabs_con_card_right' >
+                          <a href={`https://treelink.com/${user.link}`} >
+                            <span  >{user.link}</span>
+                          </a>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+                </CustomTabPanel>
+                <CustomTabPanel value={value} index={2}>
+                  <div className='my_profile_desktop_right_tab' >
+                    <div className='my_profile_desktop_right_tabs_con' >
+                      <div className='my_profile_desktop_right_tabs_con_card' >
+                        <div className='my_profile_desktop_right_tabs_con_details_card_left' >
+                          <span>Personality</span>:
+                        </div>
+                        <div className='my_profile_desktop_right_tabs_con_card_right' >
+                          <span>{user.personality}</span>
+                        </div>
+                      </div>
+                      <div className='my_profile_desktop_right_tabs_con_card' >
+                        <div className='my_profile_desktop_right_tabs_con_details_card_left' >
+                          <span>Interest</span>:
+                        </div>
+                        <div className='my_profile_desktop_right_tabs_con_card_right' >
+                          <span>{user.category}</span>
+                        </div>
+                      </div>
+
+                      <div className='my_profile_desktop_right_tabs_con_card' >
+                        <div className='my_profile_desktop_right_tabs_con_details_card_left' >
+                          <span>Body</span>:
+                        </div>
+                        <div className='my_profile_desktop_right_tabs_con_card_right' >
+                          <span>{user.body}</span>
+                        </div>
+                      </div>
+
+                      <div className='my_profile_desktop_right_tabs_con_card' >
+                        <div className='my_profile_desktop_right_tabs_con_details_card_left' >
+                          <span>Size</span>:
+                        </div>
+                        <div className='my_profile_desktop_right_tabs_con_card_right' >
+                          <span>{user.size}</span>
+                        </div>
+                      </div>
+
+                      <div className='my_profile_desktop_right_tabs_con_card' >
+                        <div className='my_profile_desktop_right_tabs_con_details_card_left' >
+                          <span>Mindset</span>:
+                        </div>
+                        <div className='my_profile_desktop_right_tabs_con_card_right' >
+                          <span>{user.mindset}</span>
+                        </div>
+                      </div>
+
+                    </div>
+                    <div className='my_profile_desktop_right_tabs_con' >
+                      <div className='my_profile_desktop_right_tabs_con_card' >
+                        <div className='my_profile_desktop_right_tabs_con_details_card_left' >
+                          <span>High Scool</span>:
+                        </div>
+                        <div className='my_profile_desktop_right_tabs_con_card_right' >
+                          <span>{user.high_school}</span>
+                        </div>
+                      </div>
+                      <div className='my_profile_desktop_right_tabs_con_card' >
+                        <div className='my_profile_desktop_right_tabs_con_details_card_left' >
+                          <span>Primary</span>:
+                        </div>
+                        <div className='my_profile_desktop_right_tabs_con_card_right' >
+                          <span>{user.primary_school}</span>
+                        </div>
+                      </div>
+
+                      <div className='my_profile_desktop_right_tabs_con_card' >
+                        <div className='my_profile_desktop_right_tabs_con_details_card_left' >
+                          <span>College/varsity</span>:
+                        </div>
+                        <div className='my_profile_desktop_right_tabs_con_card_right' >
+                          <span>{user.college}</span>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </CustomTabPanel>
+
               </Box>
-              <CustomTabPanel value={value} index={0}>
-                <div className='seller_page_desktop_con_right_bottom_select_details' >
-                  <div className='seller_page_desktop_con_right_bottom_select_details_product_list' >
-                    <img src={user.image_1} alt='' className='seller_page_desktop_con_right_bottom_select_details_image_list' />
-                    <img src={user.image_2} alt='' className='seller_page_desktop_con_right_bottom_select_details_image_list' />
-                    <img src={user.image_3} alt='' className='seller_page_desktop_con_right_bottom_select_details_image_list' />
-                    <img src={user.image_4} alt='' className='seller_page_desktop_con_right_bottom_select_details_image_list' />
-                    <img src={user.image_5} alt='' className='seller_page_desktop_con_right_bottom_select_details_image_list' />
-                 
-                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className='my_profile_mobile' >
+        <div className='my_profile_desktop_con' >
+          <div className='my_profile_desktop_left' >
+
+            <div className='my_profile_desktop_left_top_nav' >
+              <div className='my_profile_desktop_left_top_nav_left' >
+                <Link style={{ textDecoration: 'nome' }} to='/' >
+                  <span className='my_profile_desktop_left_top_nav_left_icon' >
+                    <ArrowBackIcon />
+                  </span>
+                </Link>
+              </div>
+
+              <div className='my_profile_desktop_left_top_nav_right' >
+                <Link style={{ textDecoration: 'nome' }} to='/profile' >
+                  <span className='my_profile_desktop_left_top_nav_left_icon' >
+                    <SettingsIcon /> 
+                  </span>
+                </Link>
+              </div>
+
+            </div>
+            
+          {user.image ? (<>
+            <img src={user.image} alt='' className='my_profile_desktop_left_img' />
+          
+                      </>) : (<>
+                     
+                        
+                            <Link to='/uploadimage' style={{ textDecoration: 'none' }} >
+                              <div className='my_profile_desktop_left_img_skeleton_icon' ><CameraAltIcon fontSize="large" /></div>
+                            </Link>
+                       
+                       
+                      </>)}
+            <div className='my_profile_desktop_left_contacts' >
+              <a style={{ textDecoration: 'none' }} href={`https://instagram.com/${user.instagram}`}>
+                <span className='my_profile_desktop_left_contacts_link' >
+                  <InstagramIcon />
+                </span>
+              </a>
+              <a style={{ textDecoration: 'none' }} href={`tel:${user.whatsapp}`} >
+                <span className='my_profile_desktop_left_contacts_link_chat' >
+                  Message
+                </span>
+              </a>
+              <a style={{ textDecoration: 'none' }} href={`tel:${user.phone}`}>
+                <span className='my_profile_desktop_left_contacts_link' >
+                  <CallIcon />
+                </span>
+              </a>
+
+
+            </div>
+          </div>
+          <div className='my_profile_desktop_right' >
+            <div className='my_profile_desktop_right_top' >
+              <span className='my_profile_desktop_right_top_name' >{user.name},</span>
+              <span className='my_profile_desktop_right_top_age' >{user.age}</span>
+            </div>
+
+            <div className='my_profile_desktop_right_location' >
+              <div className='my_profile_desktop_right_location_card' >
+                <div className='my_profile_desktop_right_location_card_left' >
+                  <span><FlagIcon fontSize="medium" /></span>
                 </div>
-              </CustomTabPanel>
-              <CustomTabPanel value={value} index={1}>
-                <div className='seller_page_desktop_con_right_bottom_select_details' >
-                  <div className='seller_page_desktop_con_right_bottom_select_details_seller_info' >
-                    <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_con' >
-                      <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_name' >
-                        <h3>{user.name}</h3>
-                      </div>
-
-
-
-                      <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_2' >
-                        <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_top' >
-                          <h5>Location</h5>
-                        </div>
-                        <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_bottom_2' >
-                          <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card' >
-                            <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_left' >
-                              <span>City</span>
-                            </div>
-                            <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_right' >
-                              <span>{user.city}</span>
-                            </div>
-                          </div>
-                          <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card' >
-                            <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_left' >
-                              <span>Province</span>
-                            </div>
-                            <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_right' >
-                              <span>{user.province}</span>
-                            </div>
-                          </div>
-                          <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card' >
-                            <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_left' >
-                              <span>Country</span>
-                            </div>
-                            <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_right' >
-                              <span>{user.country}</span>
-                            </div>
-                          </div>
-                        </div>
-
-                      </div>
-
-                      <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_2' >
-                        <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_top' >
-                          <h5>Scchool</h5>
-                        </div>
-                        <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_bottom_2' >
-                          <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card' >
-                            <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_left' >
-                              <span>High School</span>
-                            </div>
-                            <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_right' >
-                              <span>{user.high_school}</span>
-                            </div>
-                          </div>
-                          <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card' >
-                            <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_left' >
-                              <span>Primary</span>
-                            </div>
-                            <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_right' >
-                              <span>{user.primary_school}</span>
-                            </div>
-                          </div>
-                          <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card' >
-                            <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_left' >
-                              <span>College</span>
-                            </div>
-                            <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_right' >
-                              <span> {user.college}</span>
-                            </div>
-                          </div>
-                        </div>
-
-                      </div>
-
-                  
-
-                      <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_2' >
-                        <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_top' >
-                          <h5>Contact Information</h5>
-                        </div>
-                        <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_bottom_2' >
-
-                          <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card' >
-                            <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_left_contact' >
-                              <span><EmailIcon /></span>
-                            </div>
-                            <Link to='' style={{ textDecoration: 'none', color: 'black' }} >
-                              <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_right_contact' >
-                                <span>{user.email}</span>
-                              </div>
-                            </Link>
-                          </div>
-                          <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card' >
-                            <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_left_contact' >
-                              <span><CallIcon /></span>
-                            </div>
-                            <Link to='' style={{ textDecoration: 'none', color: 'black' }} >
-                              <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_right_contact' >
-                                <span>{user.phone}</span>
-                              </div>
-                            </Link>
-                          </div>
-                          <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card' >
-                            <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_left_contact' >
-                              <span><WhatsAppIcon /></span>
-                            </div>
-                            <Link to='' style={{ textDecoration: 'none', color: 'black' }} >
-                              <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_card_right_contact' >
-                                <span>{user.whatsapp}</span>
-                              </div>
-                            </Link>
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-                    <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_description' >
-                      <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_description_top' >
-                        <h5>Personality</h5>
-                      </div>
-                      <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_description_bottom' >
-                        <li>{user.personality}</li>
-                      </div>
-                    </div>
-
-                    <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_description' >
-                      <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_description_top' >
-                        <h5>Looking For</h5>
-                      </div>
-                      <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_description_bottom' >
-                        <li>{user.category}</li>
-                      </div>
-                    </div>
-                    
-                     <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_description' >
-                      <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_description_top' >
-                        <h5>Mindset</h5>
-                      </div>
-                      <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_description_bottom' >
-                        <li>{user.mindset}</li>
-                      </div>
-                    </div>
-                 
-                    <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_description' >
-                      <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_description_top' >
-                        <h5>About me </h5>
-                      </div>
-                      <div className='seller_page_desktop_con_right_bottom_select_details_seller_info_description_bottom' >
-                        <p>{user.about_me}</p>
-                      </div>
-                    </div>
-                   
-                    
-                  </div>
+                <div className='my_profile_desktop_right_location_card_right' >
+                  <span>{user.country}</span>
                 </div>
-              </CustomTabPanel>
-             
-            </Box>
+              </div>
+
+              <div className='my_profile_desktop_right_location_card' >
+                <div className='my_profile_desktop_right_location_card_left' >
+                  <span><LocationCityIcon fontSize="medium" /></span>
+                </div>
+                <div className='my_profile_desktop_right_location_card_right' >
+                  <span>{user.city}</span>
+                </div>
+              </div>
+              <div className='my_profile_desktop_right_location_card' >
+                <div className='my_profile_desktop_right_location_card_left' >
+                  <span><LinkIcon fontSize="medium" /></span>
+                </div>
+                <div className='my_profile_desktop_right_location_card_right' >
+                  <a href={`https://${user.link}`} >
+                    <span className='my_profile_desktop_con_right_top_bio_right_contact_text' >{user.link}</span>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
+            <div className='my_profile_desktop_right_biography ' >
+              <div className='my_profile_desktop_right_biography_top ' >
+                <span>Bio</span>
+              </div>
+              <div className='my_profile_desktop_right_biography_bottom' >
+                <p>{user.about_me}</p>
+              </div>
+            </div>
+            <div className='my_profile_desktop_right_tabs' >
+              <Box sx={{ width: '100%' }}>
+                <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                  <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+                    <Tab label="Images" {...a11yProps(0)} />
+                    <Tab label="contact" {...a11yProps(1)} />
+                    <Tab label="Details" {...a11yProps(2)} />
+                  </Tabs>
+                </Box>
+                <CustomTabPanel value={value} index={0}>
+                  <div className='my_profile_desktop_right_tab' >
+                    <div className='my_profile_desktop_right_tab_images' >
+
+
+
+
+                      {user.image_1 ? (<>
+                        <img src={user.image_1} alt='' className='my_profile_desktop_right_tab_img' />
+
+                      </>) : (<>
+                        <div className='my_profile_desktop_con_right_bottom_select_details_image_card_skeleton' >
+                          <div className='my_profile_desktop_con_right_bottom_select_details_image_card_skeleton_link' >
+                            <Link to='/uploadimageone' style={{ textDecoration: 'none' }} >
+                              <span className='my_profile_desktop_con_right_bottom_select_details_image_card_skeleton_link_icon' >
+                                +
+                              </span>
+                            </Link>
+                          </div>
+                        </div>
+                      </>)}
+
+                      {user.image_2 ? (<>
+                        <img src={user.image_2} alt='' className='my_profile_desktop_right_tab_img' />
+
+                      </>) : (<>
+                        <div className='my_profile_desktop_con_right_bottom_select_details_image_card_skeleton' >
+                          <div className='my_profile_desktop_con_right_bottom_select_details_image_card_skeleton_link' >
+                            <Link to='/uploadimagetwo' style={{ textDecoration: 'none' }} >
+                              <span className='my_profile_desktop_con_right_bottom_select_details_image_card_skeleton_link_icon' >
+                                +
+                              </span>
+                            </Link>
+                          </div>
+                        </div>
+                      </>)}
+
+                      {user.image_3 ? (<>
+                        <img src={user.image_3} alt='' className='my_profile_desktop_right_tab_img' />
+
+                      </>) : (<>
+                        <div className='my_profile_desktop_con_right_bottom_select_details_image_card_skeleton' >
+                          <div className='my_profile_desktop_con_right_bottom_select_details_image_card_skeleton_link' >
+                            <Link to='/uploadimagethree' style={{ textDecoration: 'none' }} >
+                              <span className='my_profile_desktop_con_right_bottom_select_details_image_card_skeleton_link_icon' >
+                                +
+                              </span>
+                            </Link>
+                          </div>
+                        </div>
+                      </>)}
+
+                      {user.image_4 ? (<>
+                        <img src={user.image_4} alt='' className='my_profile_desktop_right_tab_img' />
+
+                      </>) : (<>
+                        <div className='my_profile_desktop_con_right_bottom_select_details_image_card_skeleton' >
+                          <div className='my_profile_desktop_con_right_bottom_select_details_image_card_skeleton_link' >
+                            <Link to='/uploadimagefour' style={{ textDecoration: 'none' }} >
+                              <span className='my_profile_desktop_con_right_bottom_select_details_image_card_skeleton_link_icon' >
+                                +
+                              </span>
+                            </Link>
+                          </div>
+                        </div>
+                      </>)}
+                    </div>
+                  </div>
+                </CustomTabPanel>
+                <CustomTabPanel value={value} index={1}>
+                  <div className='my_profile_desktop_right_tab' >
+                    <div className='my_profile_desktop_right_tabs_con' >
+                      <div className='my_profile_desktop_right_tabs_con_card' >
+                        <div className='my_profile_desktop_right_tabs_con_card_left' >
+                          <span><FlagIcon fontSize="medium" /></span>
+                        </div>
+                        <div className='my_profile_desktop_right_tabs_con_card_right' >
+                          <span>{user.country}</span>
+                        </div>
+                      </div>
+
+                      <div className='my_profile_desktop_right_tabs_con_card' >
+                        <div className='my_profile_desktop_right_tabs_con_card_left' >
+                          <span><LocationCityIcon fontSize="medium" /></span>
+                        </div>
+                        <div className='my_profile_desktop_right_tabs_con_card_right' >
+                          <span>{user.city}</span>
+                        </div>
+                      </div>
+                      <div className='my_profile_desktop_right_tabs_con_card' >
+                        <div className='my_profile_desktop_right_tabs_con_card_left' >
+                          <span><PlaceIcon fontSize="medium" /></span>
+                        </div>
+                        <div className='my_profile_desktop_right_tabs_con_card_right' >
+                          <span>{user.province}</span>
+                        </div>
+                      </div>
+
+                    </div>
+                    <div className='my_profile_desktop_right_tabs_con' >
+                      <div className='my_profile_desktop_right_tabs_con_card' >
+                        <div className='my_profile_desktop_right_tabs_con_card_left' >
+                          <span><CallIcon fontSize="medium" /></span>
+                        </div>
+                        <div className='my_profile_desktop_right_tabs_con_card_right' >
+                          <a href={`tel:${user.phone}`} >
+                            <span  >{user.phone}</span>
+                          </a>
+                        </div>
+                      </div>
+
+                      <div className='my_profile_desktop_right_tabs_con_card' >
+                        <div className='my_profile_desktop_right_tabs_con_card_left' >
+                          <span><WhatsAppIcon fontSize="medium" /></span>
+                        </div>
+                        <div className='my_profile_desktop_right_tabs_con_card_right' >
+                          <a href={`tel:${user.whatsapp}`}  >
+                            <span  >{user.whatsapp}</span>
+                          </a>
+                        </div>
+                      </div>
+                      <div className='my_profile_desktop_right_tabs_con_card' >
+                        <div className='my_profile_desktop_right_tabs_con_card_left' >
+                          <span><InstagramIcon fontSize="medium" /></span>
+                        </div>
+                        <div className='my_profile_desktop_right_tabs_con_card_right' >
+                          <a href={`https://instagram.com/${user.instagram}`} >
+                            <span  >{user.instagram}</span>
+                          </a>
+                        </div>
+                      </div>
+                      <div className='my_profile_desktop_right_tabs_con_card' >
+                        <div className='my_profile_desktop_right_tabs_con_card_left' >
+                          <span><LinkIcon fontSize="medium" /></span>
+                        </div>
+                        <div className='my_profile_desktop_right_tabs_con_card_right' >
+                          <a href={`https://${user.link}`} >
+                            <span  >{user.link}</span>
+                          </a>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+                </CustomTabPanel>
+                <CustomTabPanel value={value} index={2}>
+                  <div className='my_profile_desktop_right_tab' >
+                    <div className='my_profile_desktop_right_tabs_con' >
+                      <div className='my_profile_desktop_right_tabs_con_card' >
+                        <div className='my_profile_desktop_right_tabs_con_details_card_left' >
+                          <span>Personality</span>:
+                        </div>
+                        <div className='my_profile_desktop_right_tabs_con_card_right' >
+                          <span>{user.personality}</span>
+                        </div>
+                      </div>
+                      <div className='my_profile_desktop_right_tabs_con_card' >
+                        <div className='my_profile_desktop_right_tabs_con_details_card_left' >
+                          <span>Interest</span>:
+                        </div>
+                        <div className='my_profile_desktop_right_tabs_con_card_right' >
+                          <span>{user.category}</span>
+                        </div>
+                      </div>
+
+                      <div className='my_profile_desktop_right_tabs_con_card' >
+                        <div className='my_profile_desktop_right_tabs_con_details_card_left' >
+                          <span>Body</span>:
+                        </div>
+                        <div className='my_profile_desktop_right_tabs_con_card_right' >
+                          <span>{user.body}</span>
+                        </div>
+                      </div>
+
+                      <div className='my_profile_desktop_right_tabs_con_card' >
+                        <div className='my_profile_desktop_right_tabs_con_details_card_left' >
+                          <span>Size</span>:
+                        </div>
+                        <div className='my_profile_desktop_right_tabs_con_card_right' >
+                          <span>{user.size}</span>
+                        </div>
+                      </div>
+
+                      <div className='my_profile_desktop_right_tabs_con_card' >
+                        <div className='my_profile_desktop_right_tabs_con_details_card_left' >
+                          <span>Mindset</span>:
+                        </div>
+                        <div className='my_profile_desktop_right_tabs_con_card_right' >
+                          <span>{user.mindset}</span>
+                        </div>
+                      </div>
+
+                    </div>
+                    <div className='my_profile_desktop_right_tabs_con' >
+                      <div className='my_profile_desktop_right_tabs_con_card' >
+                        <div className='my_profile_desktop_right_tabs_con_details_card_left' >
+                          <span>High Scool</span>:
+                        </div>
+                        <div className='my_profile_desktop_right_tabs_con_card_right' >
+                          <span>{user.high_school}</span>
+                        </div>
+                      </div>
+                      <div className='my_profile_desktop_right_tabs_con_card' >
+                        <div className='my_profile_desktop_right_tabs_con_details_card_left' >
+                          <span>Primary</span>:
+                        </div>
+                        <div className='my_profile_desktop_right_tabs_con_card_right' >
+                          <span>{user.primary_school}</span>
+                        </div>
+                      </div>
+
+                      <div className='my_profile_desktop_right_tabs_con_card' >
+                        <div className='my_profile_desktop_right_tabs_con_details_card_left' >
+                          <span>College/varsity</span>:
+                        </div>
+                        <div className='my_profile_desktop_right_tabs_con_card_right' >
+                          <span>{user.college}</span>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </CustomTabPanel>
+
+              </Box>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
   );
 }
 export default MyProfile;

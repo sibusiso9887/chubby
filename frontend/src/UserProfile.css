@@ -1,15 +1,15 @@
-.my_profile {
+.user_profile {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
 }
 
-.my_profile_mobile {
+.user_profile_mobile {
     display: none;
 }
 
-.my_profile_desktop {
+.user_profile_desktop {
     width: 100%;
 display: flex;
 flex-direction: column;
@@ -17,13 +17,13 @@ align-items: center;
 
 }
 
-.my_profile_desktop_con {
+.user_profile_desktop_con {
     display: flex;
     width: 100%;
     margin-top: 25px;
 }
 
-.my_profile_desktop_left {
+.user_profile_desktop_left {
 width: 50%;
 height: 600px;
 display: flex;
@@ -31,38 +31,12 @@ justify-content: center;
 position: relative;
 }
 
-.my_profile_desktop_left_img {
+.user_profile_desktop_left_img {
 width: 90%;
 height: 600px;
 }
 
-.my_profile_desktop_left_img_skeleton {
-    width: 90%;
-    height: 600px;
-    border: 1px solid gainsboro;
-    border-radius: 10px;
-    
-}
-
-.my_profile_desktop_left_img_skeleton_con {
-
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-}
-
-.my_profile_desktop_left_img_skeleton_icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-border-radius: 360px;
-border: 1px solid gainsboro;
-height: 75px;
-width: 75px;
-color: black;
-}
-
-.my_profile_desktop_left_contacts {
+.user_profile_desktop_left_contacts {
 display: flex;
 align-items: center;
 justify-content: center;
@@ -76,7 +50,7 @@ bottom: 5%;
 
 }
 
-.my_profile_desktop_left_contacts_link {
+.user_profile_desktop_left_contacts_link {
 
 border-radius: 360px;
 border: 2px solid gainsboro;
@@ -86,7 +60,7 @@ justify-content: center;
 padding: 10px;
 }
 
-.my_profile_desktop_left_contacts_link_chat {
+.user_profile_desktop_left_contacts_link_chat {
     border-radius: 360px;
 border: 2px solid gainsboro;
 display: flex;
@@ -100,14 +74,14 @@ width: 100px;
 
 
 
-.my_profile_desktop_right {
+.user_profile_desktop_right {
     width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.my_profile_desktop_right_top {
+.user_profile_desktop_right_top {
 display: flex;
 align-items: center;
 border-bottom: 1px solid gainsboro;
@@ -115,51 +89,37 @@ height: 75px;
 width: 100%;
 }
 
-.my_profile_desktop_right_top_name {
+.user_profile_desktop_right_top_name {
 font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 font-size: 30px;
 }
 
-.my_profile_desktop_right_top_age {
+.user_profile_desktop_right_top_age {
 font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 margin-left: 5px;
 font-size: 30px;
 }
 
-.my_profile_desktop_right_top_bedge {
+.user_profile_desktop_right_top_bedge {
 font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 margin-left: 5px;
 color: royalblue;
 }
 
-.my_profile_desktop_right_top_edit_profile_link_con {
-    margin-left: auto;
-    padding-right: 25px;
-}
-
-.my_profile_desktop_right_top_edit_profile_link {
-  border: 1px solid gainsboro;
-  padding: 10px;
-  border-radius: 360px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.my_profile_desktop_right_location {
+.user_profile_desktop_right_location {
     display: flex;
     flex-direction: column;
     width: 100%;
     margin-top: 15px;
 }
 
-.my_profile_desktop_right_location_card {
+.user_profile_desktop_right_location_card {
     display: flex;
     align-items: center;
     width: 100%;
 }
 
-.my_profile_desktop_right_location_card_left {
+.user_profile_desktop_right_location_card_left {
 display: flex;
 align-items: center;
 height: 100%;
@@ -167,19 +127,19 @@ height: 100%;
 
 
 
-.my_profile_desktop_right_location_card_left span {
+.user_profile_desktop_right_location_card_left span {
 color: black;
 height: 100%;
 }
 
-.my_profile_desktop_right_location_card_right {
+.user_profile_desktop_right_location_card_right {
 display: flex;
 align-items: center;
 height: 100%;
 
 }
 
-.my_profile_desktop_right_location_card_right span {
+.user_profile_desktop_right_location_card_right span {
 font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 height: 100%;
 font-size: 20px;
@@ -188,14 +148,14 @@ margin-left: 10px;
 
 
 
-.my_profile_desktop_right_biography {
+.user_profile_desktop_right_biography {
 display: flex;
 flex-direction: column;
 align-items: center;
 width: 100%;
 }
 
-.my_profile_desktop_right_biography_top {
+.user_profile_desktop_right_biography_top {
 display: flex;
 align-items: center;
 width: 100%;
@@ -203,72 +163,45 @@ height: 30px;
 
 }
 
-.my_profile_desktop_right_biography_top span {
+.user_profile_desktop_right_biography_top span {
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     color: black;
 }
 
-.my_profile_desktop_right_biography_bottom {
+.user_profile_desktop_right_biography_bottom {
 display: flex;
 flex-direction: column;
 width: 100%;
 }
 
-.my_profile_desktop_right_biography_bottom p {
+.user_profile_desktop_right_biography_bottom p {
 font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
-.my_profile_desktop_right_tabs {
+.user_profile_desktop_right_tabs {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-.my_profile_desktop_right_tab {
+.user_profile_desktop_right_tab {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-.my_profile_desktop_right_tab_images {
+.user_profile_desktop_right_tab_images {
 display: grid;
 grid-template-columns: 1fr 1fr 1fr;
 }
 
-.my_profile_desktop_right_tab_img {
+.user_profile_desktop_right_tab_img {
     width: 95%;
     height: 300px;
     margin-top: 5px;
 }
 
-.my_profile_desktop_con_right_bottom_select_details_image_card_skeleton {
-    width: 95%;
-    height: 300px;
-    margin-top: 5px;
-    border: 2px solid gainsboro;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.my_profile_desktop_con_right_bottom_select_details_image_card_skeleton_link {
-background-color: white;
-border: 2px solid gainsboro;
-border-radius: 360px;
-width: 40px;
-height: 40px;
-display: flex;
-align-items: center;
-justify-content: center;
-}
-
-.my_profile_desktop_con_right_bottom_select_details_image_card_skeleton_link_icon {
-color: black;
-font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-font-size: 20px;
-}
-
-
-.my_profile_desktop_right_tabs_con {
+.user_profile_desktop_right_tabs_con {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -278,20 +211,20 @@ font-size: 20px;
     border-radius: 10px;
 }
 
-.my_profile_desktop_right_tabs_con_card {
+.user_profile_desktop_right_tabs_con_card {
     display: flex;
     align-items: center;
     width: 100%;
 }
 
-.my_profile_desktop_right_tabs_con_card_left {
+.user_profile_desktop_right_tabs_con_card_left {
 display: flex;
 align-items: center;
 height: 100%;
 }
 
 /*details*/
-.my_profile_desktop_right_tabs_con_details_card_left {
+.user_profile_desktop_right_tabs_con_details_card_left {
     display: flex;
     align-items: center;
     height: 100%;
@@ -301,19 +234,19 @@ height: 100%;
 
 
 
-.my_profile_desktop_right_tabs_con_card_left span {
+.user_profile_desktop_right_tabs_con_card_left span {
 color: black;
 height: 100%;
 }
 
-.my_profile_desktop_right_tabs_con_card_right {
+.user_profile_desktop_right_tabs_con_card_right {
 display: flex;
 align-items: center;
 height: 100%;
 
 }
 
-.my_profile_desktop_right_tabs_con_card_right span {
+.user_profile_desktop_right_tabs_con_card_right span {
 font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 height: 100%;
 font-size: 20px;
@@ -324,25 +257,25 @@ margin-left: 10px;
 
 
 @media (max-width:700px) {
-    .my_profile_desktop {
+    .user_profile_desktop {
         display: none;
     }
     
-    .my_profile_mobile {
+    .user_profile_mobile {
     display: flex;
     flex-direction: column;
     align-items: center;
     }
 
     
-.my_profile_desktop_con {
+.user_profile_desktop_con {
     display: flex;
     flex-direction: column;
     width: 100%;
     margin-top:0px;
 }
 
-.my_profile_desktop_left {
+.user_profile_desktop_left {
 width: 100%;
 height: 400px;
 display: flex;
@@ -350,7 +283,7 @@ justify-content: center;
 position: relative;
 }
 
-.my_profile_desktop_left_top_nav {
+.user_profile_desktop_left_top_nav {
     position: absolute;
     top: 0px;
     height: 50px;
@@ -360,7 +293,7 @@ position: relative;
     
 }
 
-.my_profile_desktop_left_top_nav_left {
+.user_profile_desktop_left_top_nav_left {
     width: 50%;
     display: flex;
     align-items: center;
@@ -368,15 +301,7 @@ position: relative;
     padding-left: 10px;
 }
 
-.my_profile_desktop_left_top_nav_right {
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding-right: 10px;
-}
-
-.my_profile_desktop_left_top_nav_left_icon {
+.user_profile_desktop_left_top_nav_left_icon {
     border-radius: 360px;
     display: flex;
     align-items: center;
@@ -384,31 +309,15 @@ position: relative;
     background-color: white;
     color: black;
   
-    padding: 5px;
+    padding: 10px;
 }
 
-
-
-.my_profile_desktop_left_img_skeleton_icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-border-radius: 360px;
-border: 1px solid gainsboro;
-height: 75px;
-width: 75px;
-color: black;
-margin-top: 15px;
-}
-
-
-
-.my_profile_desktop_left_img {
+.user_profile_desktop_left_img {
 width: 100%;
 height: 400px;
 }
 
-.my_profile_desktop_left_contacts {
+.user_profile_desktop_left_contacts {
 display: flex;
 align-items: center;
 justify-content: center;
@@ -422,7 +331,7 @@ bottom: 5%;
 
 }
 
-.my_profile_desktop_left_contacts_link {
+.user_profile_desktop_left_contacts_link {
 
 border-radius: 360px;
 border: 2px solid gainsboro;
@@ -432,7 +341,7 @@ justify-content: center;
 padding: 10px;
 }
 
-.my_profile_desktop_left_contacts_link_chat {
+.user_profile_desktop_left_contacts_link_chat {
     border-radius: 360px;
 border: 2px solid gainsboro;
 display: flex;
@@ -446,14 +355,14 @@ width: 100px;
 
 
 
-.my_profile_desktop_right {
+.user_profile_desktop_right {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.my_profile_desktop_right_top {
+.user_profile_desktop_right_top {
     padding-left: 10px;
 display: flex;
 align-items: center;
@@ -462,24 +371,24 @@ height: 75px;
 width: 100%;
 }
 
-.my_profile_desktop_right_top_name {
+.user_profile_desktop_right_top_name {
 font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 font-size: 30px;
 }
 
-.my_profile_desktop_right_top_age {
+.user_profile_desktop_right_top_age {
 font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 margin-left: 5px;
 font-size: 30px;
 }
 
-.my_profile_desktop_right_top_bedge {
+.user_profile_desktop_right_top_bedge {
 font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 margin-left: 5px;
 color: royalblue;
 }
 
-.my_profile_desktop_right_location {
+.user_profile_desktop_right_location {
     padding-left: 10px;
     display: flex;
     flex-direction: column;
@@ -487,13 +396,13 @@ color: royalblue;
     margin-top: 15px;
 }
 
-.my_profile_desktop_right_location_card {
+.user_profile_desktop_right_location_card {
     display: flex;
     align-items: center;
     width: 100%;
 }
 
-.my_profile_desktop_right_location_card_left {
+.user_profile_desktop_right_location_card_left {
 display: flex;
 align-items: center;
 height: 100%;
@@ -501,19 +410,19 @@ height: 100%;
 
 
 
-.my_profile_desktop_right_location_card_left span {
+.user_profile_desktop_right_location_card_left span {
 color: black;
 height: 100%;
 }
 
-.my_profile_desktop_right_location_card_right {
+.user_profile_desktop_right_location_card_right {
 display: flex;
 align-items: center;
 height: 100%;
 
 }
 
-.my_profile_desktop_right_location_card_right span {
+.user_profile_desktop_right_location_card_right span {
 font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 height: 100%;
 font-size: 20px;
@@ -522,7 +431,7 @@ margin-left: 10px;
 
 
 
-.my_profile_desktop_right_biography {
+.user_profile_desktop_right_biography {
     border-top: 1px solid gainsboro;
     border-bottom: 1px solid gainsboro;
     margin-top: 5px;
@@ -533,7 +442,7 @@ align-items: center;
 width: 100%;
 }
 
-.my_profile_desktop_right_biography_top {
+.user_profile_desktop_right_biography_top {
 display: flex;
 align-items: center;
 width: 100%;
@@ -541,73 +450,46 @@ height: 30px;
 
 }
 
-.my_profile_desktop_right_biography_top span {
+.user_profile_desktop_right_biography_top span {
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     color: black;
 }
 
-.my_profile_desktop_right_biography_bottom {
+.user_profile_desktop_right_biography_bottom {
 display: flex;
 flex-direction: column;
 width: 100%;
 }
 
-.my_profile_desktop_right_biography_bottom p {
+.user_profile_desktop_right_biography_bottom p {
 font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
-.my_profile_desktop_right_tabs {
+.user_profile_desktop_right_tabs {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-.my_profile_desktop_right_tab {
+.user_profile_desktop_right_tab {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-.my_profile_desktop_right_tab_images {
+.user_profile_desktop_right_tab_images {
 display: grid;
 grid-template-columns: 1fr 1fr;
 }
 
-.my_profile_desktop_right_tab_img {
+.user_profile_desktop_right_tab_img {
     width: 95%;
     height: 300px;
     margin-top: 5px;
     
 }
 
-.my_profile_desktop_con_right_bottom_select_details_image_card_skeleton {
-    width: 95%;
-    height: 300px;
-    margin-top: 5px;
-    border: 2px solid gainsboro;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.my_profile_desktop_con_right_bottom_select_details_image_card_skeleton_link {
-background-color: white;
-border: 2px solid gainsboro;
-border-radius: 360px;
-width: 40px;
-height: 40px;
-display: flex;
-align-items: center;
-justify-content: center;
-}
-
-.my_profile_desktop_con_right_bottom_select_details_image_card_skeleton_link_icon {
-color: black;
-font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-font-size: 20px;
-}
-
-
-.my_profile_desktop_right_tabs_con {
+.user_profile_desktop_right_tabs_con {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -617,20 +499,20 @@ font-size: 20px;
     border-radius: 10px;
 }
 
-.my_profile_desktop_right_tabs_con_card {
+.user_profile_desktop_right_tabs_con_card {
     display: flex;
     align-items: center;
     width: 100%;
 }
 
-.my_profile_desktop_right_tabs_con_card_left {
+.user_profile_desktop_right_tabs_con_card_left {
 display: flex;
 align-items: center;
 height: 100%;
 }
 
 /*details*/
-.my_profile_desktop_right_tabs_con_details_card_left {
+.user_profile_desktop_right_tabs_con_details_card_left {
     display: flex;
     align-items: center;
     height: 100%;
@@ -640,19 +522,19 @@ height: 100%;
 
 
 
-.my_profile_desktop_right_tabs_con_card_left span {
+.user_profile_desktop_right_tabs_con_card_left span {
 color: black;
 height: 100%;
 }
 
-.my_profile_desktop_right_tabs_con_card_right {
+.user_profile_desktop_right_tabs_con_card_right {
 display: flex;
 align-items: center;
 height: 100%;
 
 }
 
-.my_profile_desktop_right_tabs_con_card_right span {
+.user_profile_desktop_right_tabs_con_card_right span {
 font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 height: 100%;
 font-size: 15px;

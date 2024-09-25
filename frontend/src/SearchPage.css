@@ -273,14 +273,40 @@
         display: flex;
     }
 
+
+    .search_page_results {
+        display: flex;
+        align-items: center;
+        padding-left: 5px;
+        height: 40px;
+    }
+
     .search_page_mobile_centre {
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
 
     .search_page_mobile_bottom {
-        height: 50px;
+        border: 2px solid gainsboro;
+        width: 90%;
+        min-height: 50px;
         margin-bottom: 50px;
+        border-radius: 360px;
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 5px;
+        
+    }
+
+    .link_container {
+        border-radius: 360px;
+        margin-right: 5px;
+    }
+
+    .pagination_link {
+
     }
 
     /*filter*/

@@ -102,8 +102,8 @@ export default function FemaleSignupScreen() {
                 className='register_form_center_input'
               >
                 <option value="">Select Gender</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
+
+                <option  value="female">Female</option>
                 
               </Form.Select>
             </Form.Group>
@@ -117,9 +117,8 @@ export default function FemaleSignupScreen() {
                 required
                 className='register_form_center_input'
               >
-                <option value=""> Gender pref</option>
+                <option value=""> Select Gender pref</option>
                 <option value="male">Male</option>
-                <option value="female">Female</option>
                 
               </Form.Select>
             </Form.Group>

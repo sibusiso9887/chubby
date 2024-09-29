@@ -9,6 +9,7 @@ import { Store } from '../Store';
 import { toast } from 'react-toastify';
 import { getError } from '../utils';
 import '../RegisterPage.css'
+import { usePaystackPayment } from 'react-paystack';
 
 export default function MaleSignupScreen() { 
   const navigate = useNavigate();
@@ -51,13 +52,48 @@ export default function MaleSignupScreen() {
     }
   }; 
 
+  const config = {
+    reference: (new Date()).getTime().toString(),
+    email:email,
+    amount: 20000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
+    publicKey: 'pk_test_dbafcca1913b97098960d18d0b4d3d3d5d36b91c',
+    currency: "ZAR",
+};
+
+
+const onSuccess = () => {
+
   
+    submitHandler();
+
+  // Implementation for whatever you want to do with reference and after success call.
+  
+};
+
+// you can call this function anything
+const onClose = () => {
+  // implementation for  whatever you want to do when the Paystack dialog closed.
+  submitHandler();
+}
+
 
   useEffect(() => {
     if (userInfo) {
       navigate(redirect);
     }
   }, [navigate, redirect, userInfo]);
+
+  const PaystackHookExample = () => {
+    const initializePayment = usePaystackPayment(config);
+    return (
+      <div>
+          <button className='register_form_center_btn'  onClick={() => {
+              initializePayment(onSuccess, onClose)
+          }}>Create Account</button>
+      </div>
+    );
+};
+
 
   return (
     <div className='register_page'>
@@ -148,7 +184,7 @@ export default function MaleSignupScreen() {
           </Form.Group>
           
           <div className='register_form_center_btn_con' >
-            <button type='submit' className='register_form_center_btn' >Register</button>
+          <PaystackHookExample />
           </div>
         </div>
         <div className='register_form_bottom' >
